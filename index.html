@@ -126,43 +126,41 @@
         }
 
         /* HAMBURGER BUTTON */
-/* HAMBURGER BUTTON */
 
-.nav-toggle {
-    display: none;
-    width: 36px;
-    height: 36px;
-    border: none;
-    background: transparent;   /* kein schwarzer Kreis mehr */
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    padding: 0;
-}
+        .nav-toggle {
+            display: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 999px;
+            border: none;
+            background: #111827;
+            color: #f9fafb;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
 
-.nav-toggle-lines {
-    width: 20px;
-    height: 2px;
-    border-radius: 999px;
-    background: #000000;        /* mittlerer Strich schwarz */
-    position: relative;
-}
+        .nav-toggle-lines {
+            width: 18px;
+            height: 2px;
+            border-radius: 999px;
+            background: #f9fafb;
+            position: relative;
+        }
 
-.nav-toggle-lines::before,
-.nav-toggle-lines::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 20px;
-    height: 2px;
-    border-radius: 999px;
-    background: #000000;        /* obere/untere Striche schwarz */
-}
+        .nav-toggle-lines::before,
+        .nav-toggle-lines::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 18px;
+            height: 2px;
+            border-radius: 999px;
+            background: #f9fafb;
+        }
 
-.nav-toggle-lines::before { top: -5px; }
-.nav-toggle-lines::after  { top:  5px; }
-
-        
+        .nav-toggle-lines::before { top: -5px; }
+        .nav-toggle-lines::after  { top:  5px; }
 
         /* MOBILE DROPDOWN-MENU */
 
@@ -1190,12 +1188,11 @@
 
         /* RESPONSIVE */
 
-    @media (max-width: 960px) {
-    header .nav {
-        position: relative;
-        padding: 10px 16px;
-        justify-content: flex-start; /* kann so bleiben */
-    }
+        @media (max-width: 960px) {
+            .hero-inner {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 32px;
+            }
 
             /* Text zuerst, dann Card */
             .hero-visual {
@@ -1222,15 +1219,15 @@
                 justify-content: flex-start;
             }
 
-           .nav-toggle {
-        display: flex;
-    }
+            .nav-toggle {
+                display: flex;
+            }
 
-           .logo {
-        position: static;     /* nicht mehr absolut */
-        transform: none;      /* alte Zentrierung weg */
-        margin-left: auto;    /* schiebt das Logo ganz nach rechts */
-    }
+            .logo {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
 
             .why-inner {
                 grid-template-columns: minmax(0, 1fr);
