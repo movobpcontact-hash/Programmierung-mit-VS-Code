@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movo – Allgemeine Geschäftsbedingungen (AGB)</title>
+    <style>
+        :root {
+            --bg: #f9fafb;
+            --card: #ffffff;
+            --accent: #2563eb;
+            --text-main: #0f172a;
+            --text-muted: #6b7280;
+            --border-subtle: rgba(148, 163, 184, 0.6);
+            --radius-lg: 24px;
+            --shadow-soft: 0 18px 60px rgba(15, 23, 42, 0.14);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background: radial-gradient(circle at top left, #e5e7eb 0, #f9fafb 40%, #f3f4f6 100%);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* HEADER / NAV */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.92);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+        }
+
+        .logo-img {
+            height: 40px;
+            width: auto;
+            display: block;
+            transform: scale(1.5);
+            transform-origin: left center;
+            filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.45));
+            transition: transform 0.18s ease, filter 0.18s ease;
+        }
+
+        .logo:hover .logo-img {
+            transform: scale(1.6);
+            filter: drop-shadow(0 0 14px rgba(59, 130, 246, 0.7));
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .nav-links a {
+            position: relative;
+            padding-bottom: 4px;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            border-radius: 999px;
+            background: var(--accent);
+            transition: width 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #111827;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        @media (max-width: 800px) {
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* MAIN LEGAL CONTENT */
+
+        .legal-main {
+            padding: 48px 0 64px;
+        }
+
+        .legal-kicker {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .legal-title {
+            font-size: 28px;
+            letter-spacing: -0.03em;
+            margin-bottom: 8px;
+        }
+
+        .legal-subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            max-width: 560px;
+        }
+
+        .legal-card {
+            background: var(--card);
+            border-radius: var(--radius-lg);
+            padding: 22px 22px 20px;
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-soft);
+            font-size: 14px;
+        }
+
+        .legal-section-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 16px;
+            margin-bottom: 4px;
+        }
+
+        .legal-section-title:first-of-type {
+            margin-top: 0;
+        }
+
+        .legal-card p + p {
+            margin-top: 4px;
+        }
+
+        .legal-meta {
+            margin-top: 20px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* LANGUAGE SWITCHER */
+
+        .language-switcher {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .lang-btn {
+            padding: 4px 12px;
+            border-radius: 999px;
+            border: 1px solid var(--border-subtle);
+            background: #ffffff;
+            font-size: 12px;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: background 0.12s ease, color 0.12s ease,
+                        box-shadow 0.12s ease, border-color 0.12s ease;
+        }
+
+        .lang-btn.active {
+            background: var(--accent);
+            color: #eff6ff;
+            border-color: var(--accent);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+        }
+
+        .lang-btn:hover:not(.active) {
+            background: #f3f4f6;
+        }
+
+        .lang-section {
+            /* container for language-specific content */
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid rgba(148, 163, 184, 0.4);
+            padding: 20px 0 26px;
+            font-size: 12px;
+            color: var(--text-muted);
+            background: #ffffff;
+        }
+
+        footer .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        footer nav {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        footer a {
+            font-size: 12px;
+        }
+
+        footer a:hover {
+            color: #111827;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container nav">
+        <div class="logo">
+            <a href="index.html#home">
+                <img src="img/movo.logo.png" alt="Movo – Gym Tracker & Planner" class="logo-img">
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html#home">Start</a>
+            <a href="index.html#features">Features</a>
+            <a href="index.html#why">Warum</a>
+            <a href="index.html#reviews">Reviews</a>
+            <a href="index.html#faq">FAQ</a>
+            <a href="index.html#legal">Rechtliches</a>
+            <a href="index.html#contact">Kontakt</a>
+        </nav>
+    </div>
+</header>
+
+<main class="legal-main">
+    <div class="container">
+
+        <!-- Language switcher -->
+        <div class="language-switcher" aria-label="Sprachauswahl / Language selection">
+            <button class="lang-btn active" data-lang="de" type="button">DE</button>
+            <button class="lang-btn" data-lang="en" type="button">EN</button>
+        </div>
+
+        <!-- German version -->
+        <section class="lang-section lang-de">
+            <div class="legal-kicker">Rechtliches</div>
+            <h1 class="legal-title">Allgemeine Geschäftsbedingungen (AGB)</h1>
+            <p class="legal-subtitle">
+                Allgemeine Geschäftsbedingungen (AGB) für die Nutzung der App „movo – Gym Tracker &amp; Planner“.
+            </p>
+
+            <div class="legal-card">
+                <p class="legal-meta"><strong>Stand:</strong> 25.10.2025</p>
+
+                <h2 class="legal-section-title">1. Anbieter, Geltungsbereich</h2>
+                <p>
+                    Diese AGB regeln die weltweite Nutzung der App „movo“ und der zugehörigen Dienste zwischen dem
+                    Anbieter („wir“) und dir als Nutzer:in („du“). Abweichende Bedingungen gelten nicht, es sei denn,
+                    wir stimmen ihnen ausdrücklich zu.
+                </p>
+
+                <h2 class="legal-section-title">
+                    2. Leistungen, Lizenz, technische Voraussetzungen
+                </h2>
+                <p>
+                    2.1 Die App bietet u. a. Trainingspläne, Challenges, Auswertungen,
+                    Schritte-/Aktivitätsdaten, Benachrichtigungen, Community- und Gamification-Funktionen.
+                    Funktionen können sich ändern oder erweitert werden.
+                </p>
+                <p>
+                    2.2 Wir gewähren dir eine persönliche, widerrufliche, nicht exklusive und nicht übertragbare
+                    Lizenz zur Nutzung der App gemäß diesen AGB.
+                </p>
+                <p>
+                    2.3 Für die Nutzung sind ein kompatibles Endgerät und Internetzugang erforderlich; daraus
+                    entstehende Kosten trägst du selbst. Es können Drittanbieter-Konten (z. B. Apple, Google)
+                    nötig sein.
+                </p>
+
+                <h2 class="legal-section-title">
+                    3. Registrierung, Alter, Konto
+                </h2>
+                <p>
+                    3.1 Für bestimmte Funktionen ist ein Konto erforderlich. Anmeldung via E-Mail/Passwort sowie
+                    „Mit Apple/Google anmelden“ ist möglich. Du machst wahrheitsgemäße Angaben und hältst sie aktuell.
+                </p>
+                <p>
+                    3.2 Du bist mindestens 16 Jahre alt. Jüngere Personen dürfen die App nur mit Einwilligung der
+                    Erziehungsberechtigten nutzen.
+                </p>
+                <p>
+                    3.3 Zugangsdaten sind geheim zu halten. Du informierst uns unverzüglich über eine unbefugte Nutzung.
+                    Wir dürfen Konten bei begründetem Verdacht vorübergehend sperren.
+                </p>
+
+                <h2 class="legal-section-title">
+                    4. Gesundheitshinweise (keine Medizinprodukte-/Arzt-Leistungen)
+                </h2>
+                <p>
+                    Die Nutzung erfolgt auf eigenes Risiko. Konsultiere vor Trainingsbeginn eine Ärztin/einen Arzt,
+                    insbesondere bei Vorerkrankungen. Die App bietet keine medizinische Beratung, Diagnose oder Therapie
+                    und ist kein Ersatz für ärztliche Behandlung. In Notfällen wähle die örtliche Notrufnummer.
+                </p>
+
+                <h2 class="legal-section-title">
+                    5. Entgelte, In-App-Käufe und Abonnements (inkl. „Lifetime“, Testphase, Beta)
+                </h2>
+                <p>
+                    5.1 <strong>Beta-Zugang:</strong> Während einer Beta-Phase können einzelne oder alle Pro-Funktionen
+                    kostenfrei freigeschaltet sein. Der Beta-Zugang kann jederzeit beendet, geändert oder auf
+                    entgeltliche Nutzung umgestellt werden; hieraus entsteht kein Anspruch auf zukünftige unentgeltliche
+                    Nutzung. Wir bemühen uns, bestehende Daten zu erhalten; ein Anspruch hierauf besteht nicht.
+                </p>
+                <p>
+                    5.2 <strong>Abonnements:</strong> Wir bieten u. a. Monats- und Jahresabos an. Abos verlängern sich
+                    automatisch, sofern du nicht mindestens 24 Stunden vor Ablauf der jeweiligen Laufzeit im Apple App
+                    Store bzw. Google Play kündigst. Abrechnung und Verwaltung (Kündigung, Pausierung, Erstattungen)
+                    erfolgen ausschließlich über deinen Store-Account. Nach Kündigung läuft das Abo bis zum Ende des
+                    bereits bezahlten Zeitraums weiter; eine anteilige Erstattung erfolgt grundsätzlich nicht, soweit
+                    zwingendes Recht oder Store-Regeln nichts anderes vorsehen.
+                </p>
+                <p>
+                    5.3 <strong>Kostenlose Probezeit (falls angeboten):</strong> Eine Probezeit (z. B. 7 Tage) geht – wenn
+                    sie nicht rechtzeitig gekündigt wird – in ein kostenpflichtiges Abo über. Nicht genutzte Anteile einer
+                    Probezeit verfallen beim Abschluss eines Abos. Pro Person/Account/Haushalt können Probezeiten begrenzt
+                    sein.
+                </p>
+                <p>
+                    5.4 <strong>Einmalige In-App-Käufe / „Lifetime“:</strong> Einmalzahlungen (z. B. „Lifetime“) schalten
+                    bestimmte Funktionen dauerhaft für die Lebensdauer des Dienstes frei, nicht für die Lebensdauer der
+                    nutzenden Person. Wir bemühen uns um den fortgesetzten Betrieb, können ihn jedoch nicht garantieren
+                    (siehe § 11). Gesetzliche Gewährleistungs- und Verbraucherschutzrechte bleiben unberührt.
+                </p>
+                <p>
+                    5.5 <strong>Preise &amp; Steuern:</strong> Aktuelle Preise werden in der App/im Store angezeigt und
+                    können je nach Region, Währung, Steuern, Promotions und Store variieren. Preis-/Leistungsänderungen
+                    gelten – soweit zulässig – ab der nächsten Aboperiode; wir informieren dich vorab, sofern erforderlich.
+                </p>
+                <p>
+                    5.6 <strong>Erstattungen/Fehlkäufe:</strong> Erstattungen richten sich nach den Bedingungen des
+                    jeweiligen App-Stores; wende dich hierfür bitte an Apple bzw. Google. Sofern wir ausnahmsweise selbst
+                    Vertragspartner sind, gilt § 6.
+                </p>
+
+                <h2 class="legal-section-title">
+                    6. Widerrufsrecht für Verbraucher:innen in der EU
+                </h2>
+                <p>
+                    6.1 Bei Käufen über Apple App Store/Google Play erfolgt der Vertragsschluss mit dem jeweiligen Store;
+                    Widerruf/Erstattung werden nach den Store-Regeln abgewickelt. Bitte nutze die Store-Funktionen für
+                    Widerruf/Rückerstattung.
+                </p>
+                <p>
+                    6.2 Sofern wir ausnahmsweise selbst Vertragspartner eines digitalen Inhalts/Services sind, stimmst du
+                    zu, dass wir vor Ablauf der Widerrufsfrist mit der Ausführung beginnen, und du dein Widerrufsrecht mit
+                    vollständiger Vertragserfüllung verlierst (§ 356 Abs. 5 BGB). Im Übrigen gilt die gesetzliche
+                    Widerrufsbelehrung.
+                </p>
+
+                <h2 class="legal-section-title">
+                    7. Nutzerpflichten, verbotene Inhalte und Verhaltensregeln
+                </h2>
+                <p>
+                    7.1 Verboten sind rechtswidrige, beleidigende, diskriminierende, pornografische, extremistische,
+                    irreführende oder sonst unzulässige Inhalte, das Umgehen technischer Schutzmaßnahmen, Reverse
+                    Engineering, Scraping sowie missbräuchliche Nutzung von Schnittstellen.
+                </p>
+                <p>
+                    7.2 <strong>Community:</strong> Respektvoller Umgang ist Pflicht. Wir können Inhalte moderieren, sperren
+                    oder entfernen, wenn ein Verstoß vorliegt oder begründet zu befürchten ist.
+                </p>
+
+                <h2 class="legal-section-title">
+                    8. Nutzerinhalte (UGC) und Rechte
+                </h2>
+                <p>
+                    8.1 Du bleibst Inhaber:in deiner Inhalte. Durch das Bereitstellen von Inhalten räumst du uns eine
+                    weltweite, nicht exklusive, unentgeltliche, übertragbare, unterlizenzierbare Lizenz ein, diese Inhalte
+                    zum Betrieb, zur Bereitstellung und Verbesserung der App (einschließlich Speicherung, Vervielfältigung,
+                    technischer Verarbeitung, Anzeige und Verbreitung innerhalb der App) zu nutzen. Eine werbliche Nutzung
+                    außerhalb der App erfolgt nur mit deiner gesonderten Einwilligung.
+                </p>
+                <p>
+                    8.2 Du sicherst zu, über erforderliche Rechte zu verfügen und dass deine Inhalte keine Rechte Dritter
+                    verletzen.
+                </p>
+
+                <h2 class="legal-section-title">
+                    9. Drittanbieter, Links, Open-Source
+                </h2>
+                <p>
+                    9.1 Die App kann auf Dienste Dritter verweisen (Websites, Inhalte, Geräte-Integrationen). Für deren
+                    Inhalte/Datenschutzpraktiken sind ausschließlich die jeweiligen Dritten verantwortlich.
+                </p>
+                <p>
+                    9.2 Wir nutzen ggf. Open-Source-Software; Hinweise/Lizenzen stellen wir in der App bereit.
+                </p>
+
+                <h2 class="legal-section-title">
+                    10. Health-Integrationen (Apple HealthKit/Google Fit u. ä.)
+                </h2>
+                <p>
+                    10.1 Eine Verbindung erfolgt nur mit deiner ausdrücklichen Einwilligung; du kannst sie jederzeit
+                    widerrufen.
+                </p>
+                <p>
+                    10.2 Aus Health-Integrationen stammende Daten verwenden wir ausschließlich zur Bereitstellung der
+                    App-Funktionen (z. B. Schritte, Trainingsauswertung). Wir verkaufen diese Daten nicht und verwenden sie
+                    nicht für Werbung oder ähnliche Zwecke. Eine Weitergabe an Dritte erfolgt nur, soweit zur
+                    Leistungserbringung erforderlich und in unserer Datenschutzerklärung beschrieben.
+                </p>
+                <p>
+                    10.3 Du kannst das Schreiben/Lesen in den Systemeinstellungen steuern.
+                </p>
+
+                <h2 class="legal-section-title">
+                    11. Verfügbarkeit, Updates und Änderungen
+                </h2>
+                <p>
+                    11.1 Es besteht kein Anspruch auf ununterbrochene Verfügbarkeit. Wartung, Sicherheit und
+                    Weiterentwicklung können zu Unterbrechungen führen.
+                </p>
+                <p>
+                    11.2 Wir stellen während eines Abos erforderliche Sicherheits- und Funktions-Updates bereit und
+                    informieren dich, wenn deren Installation erforderlich ist. Unterbleibt sie, kann dies die
+                    Funktionsfähigkeit beeinträchtigen.
+                </p>
+                <p>
+                    11.3 Wir dürfen Funktionen in zumutbarem Umfang ändern. Wesentliche Änderungen der AGB teilen wir
+                    rechtzeitig (z. B. 30 Tage) mit. Widersprichst du nicht oder nutzt du die App weiter, gelten die
+                    Änderungen als akzeptiert; wir weisen in der Mitteilung darauf hin.
+                </p>
+
+                <h2 class="legal-section-title">
+                    12. Gewährleistung und Haftung
+                </h2>
+                <p>
+                    12.1 Es gilt die gesetzliche Haftung: unbegrenzt bei Vorsatz und grober Fahrlässigkeit sowie bei
+                    Verletzung von Leben, Körper oder Gesundheit. Ebenfalls unberührt bleiben Ansprüche nach dem
+                    Produkthaftungsgesetz.
+                </p>
+                <p>
+                    12.2 Bei leichter Fahrlässigkeit haften wir nur für die Verletzung wesentlicher Vertragspflichten
+                    (Kardinalpflichten) und beschränkt auf den vertragstypisch vorhersehbaren Schaden.
+                </p>
+                <p>
+                    12.3 Bei unentgeltlicher Nutzung haften wir nur bei Vorsatz/grober Fahrlässigkeit.
+                </p>
+                <p>
+                    12.4 Zwingende Verbraucherschutzrechte bleiben unberührt.
+                </p>
+
+                <h2 class="legal-section-title">
+                    13. Laufzeit, Kündigung, Sperrung
+                </h2>
+                <p>
+                    13.1 Das Nutzungsverhältnis läuft auf unbestimmte Zeit und kann jederzeit durch Löschen des Kontos
+                    beendet werden.
+                </p>
+                <p>
+                    13.2 Abonnements kündigst du im jeweiligen App-Store; dort gelten die Kündigungsfristen und
+                    Verlängerungen.
+                </p>
+                <p>
+                    13.3 Wir können die Bereitstellung aus wichtigem Grund aussetzen oder kündigen (z. B. wiederholte
+                    Verstöße, Missbrauch, Zahlungsverzug), unter angemessener Berücksichtigung deiner Interessen.
+                </p>
+
+                <h2 class="legal-section-title">
+                    14. Datenschutz
+                </h2>
+                <p>
+                    Es gilt unsere Datenschutzerklärung. Sie erläutert, welche Daten wir verarbeiten, zu welchen Zwecken
+                    und welche Rechte du (Art. 12–22 DSGVO) hast.
+                </p>
+
+                <h2 class="legal-section-title">
+                    15. Geistiges Eigentum und Feedback
+                </h2>
+                <p>
+                    15.1 Die App, ihre Inhalte (außer UGC), Marken und Kennzeichen sind durch Urheber-, Marken- und sonstige
+                    Schutzrechte zugunsten des Anbieters bzw. seiner Lizenzgeber geschützt.
+                </p>
+                <p>
+                    15.2 Übermitteltes Feedback dürfen wir unentgeltlich, zeitlich und räumlich unbeschränkt zur
+                    Verbesserung der App nutzen.
+                </p>
+
+                <h2 class="legal-section-title">
+                    16. Online-Streitbeilegung, Verbraucherstreitbeilegung
+                </h2>
+                <p>
+                    Die EU-Kommission stellt eine Plattform zur Online-Streitbeilegung bereit:
+                    <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">
+                        https://ec.europa.eu/consumers/odr/
+                    </a>.
+                </p>
+                <p>
+                    Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer
+                    Verbraucherschlichtungsstelle teilzunehmen.
+                </p>
+
+                <h2 class="legal-section-title">
+                    17. Anwendbares Recht, Gerichtsstand, Vertragssprache
+                </h2>
+                <p>
+                    Es gilt das Recht der Bundesrepublik Deutschland, wobei für Verbraucher:innen mit gewöhnlichem
+                    Aufenthalt im EWR zwingende Bestimmungen ihres Aufenthaltsstaates unberührt bleiben. Gerichtsstand ist
+                    – soweit zulässig – der Sitz des Anbieters. Vertragssprache ist Deutsch; etwaige Übersetzungen
+                    (z. B. Englisch) dienen der Information. Bei Abweichungen hat die deutsche Fassung Vorrang.
+                </p>
+
+                <h2 class="legal-section-title">
+                    18. Salvatorische Klausel
+                </h2>
+                <p>
+                    Sollten einzelne Bestimmungen unwirksam sein, bleibt der Vertrag im Übrigen wirksam.
+                </p>
+
+                <p class="legal-meta">
+                    Diese AGB gelten ergänzend zu den Bedingungen der jeweiligen App-Stores (z. B. Apple App Store,
+                    Google Play).
+                </p>
+            </div>
+        </section>
+
+        <!-- English version -->
+        <section class="lang-section lang-en" style="display:none;">
+            <div class="legal-kicker">Legal</div>
+            <h1 class="legal-title">Terms &amp; Conditions</h1>
+            <p class="legal-subtitle">
+                General Terms and Conditions (GTC) for the use of the “movo – Gym Tracker &amp; Planner” app.
+            </p>
+
+            <div class="legal-card">
+                <p class="legal-meta"><strong>Last updated:</strong> 25 October 2025</p>
+
+                <h2 class="legal-section-title">1. Provider, scope of application</h2>
+                <p>
+                    These Terms and Conditions govern the worldwide use of the “movo” app and the related services
+                    between us as provider (“we”) and you as user (“you”). Deviating terms do not apply unless we have
+                    expressly agreed to them.
+                </p>
+
+                <h2 class="legal-section-title">
+                    2. Services, licence, technical requirements
+                </h2>
+                <p>
+                    2.1 The app provides, among other things, training plans, challenges, analytics,
+                    steps/activity data, notifications, community and gamification features.
+                    Features may change or be expanded over time.
+                </p>
+                <p>
+                    2.2 We grant you a personal, revocable, non-exclusive and non-transferable licence to use the app
+                    in accordance with these Terms.
+                </p>
+                <p>
+                    2.3 Using the app requires a compatible device and internet access; you bear any resulting costs.
+                    Third-party accounts (e.g. Apple, Google) may be required.
+                </p>
+
+                <h2 class="legal-section-title">
+                    3. Registration, age, account
+                </h2>
+                <p>
+                    3.1 Some features require an account. You can sign in via e-mail and password or via “Sign in with
+                    Apple/Google”. You provide truthful information and keep it up to date.
+                </p>
+                <p>
+                    3.2 You are at least 16 years old. Younger persons may only use the app with the consent of their
+                    legal guardians.
+                </p>
+                <p>
+                    3.3 You must keep your login credentials confidential. You inform us without undue delay of any
+                    unauthorised use. We may temporarily block accounts where there is a substantiated suspicion of
+                    misuse.
+                </p>
+
+                <h2 class="legal-section-title">
+                    4. Health notice (no medical device / no medical services)
+                </h2>
+                <p>
+                    Use of the app is at your own risk. Before starting training, consult a doctor, in particular if
+                    you have pre-existing conditions. The app does not provide medical advice, diagnosis or treatment
+                    and is not a substitute for professional medical care. In emergencies, call your local emergency
+                    number.
+                </p>
+
+                <h2 class="legal-section-title">
+                    5. Fees, in-app purchases and subscriptions (incl. “lifetime”, trial period, beta)
+                </h2>
+                <p>
+                    5.1 <strong>Beta access:</strong> During a beta phase some or all Pro features may be unlocked free
+                    of charge. Beta access can be terminated, changed or converted into paid use at any time; this does
+                    not create any entitlement to future free use. We endeavour to preserve existing data; however,
+                    there is no legal claim to this.
+                </p>
+                <p>
+                    5.2 <strong>Subscriptions:</strong> We offer, among other things, monthly and yearly subscriptions.
+                    Subscriptions renew automatically unless you cancel at least 24 hours before the end of the current
+                    term in the Apple App Store or Google Play. Billing and management (cancellation, pausing,
+                    refunds) take place exclusively via your store account. After cancellation, the subscription
+                    continues until the end of the already paid period; pro-rata refunds are generally not granted
+                    unless mandatory law or store rules provide otherwise.
+                </p>
+                <p>
+                    5.3 <strong>Free trial (if offered):</strong> A trial period (e.g. 7 days) will convert into a paid
+                    subscription if you do not cancel in time. Unused parts of a trial period expire when you start a
+                    subscription. Trials may be limited per person/account/household.
+                </p>
+                <p>
+                    5.4 <strong>One-off in-app purchases / “lifetime”:</strong> One-off payments (e.g. “lifetime”)
+                    unlock certain features permanently for the lifetime of the service, not for your lifetime as a
+                    person. We endeavour to continue operating the service but cannot guarantee this (see section 11).
+                    Statutory warranty and consumer protection rights remain unaffected.
+                </p>
+                <p>
+                    5.5 <strong>Prices &amp; taxes:</strong> Current prices are displayed in the app/in the store and
+                    may vary by region, currency, taxes, promotions and store. Changes in price/services apply – where
+                    permitted – from the next subscription period; we will inform you in advance where required.
+                </p>
+                <p>
+                    5.6 <strong>Refunds/mistaken purchases:</strong> Refunds are subject to the terms of the respective
+                    app store; please contact Apple or Google for this. Where, in exceptional cases, we are your
+                    contractual partner, section 6 applies.
+                </p>
+
+                <h2 class="legal-section-title">
+                    6. Right of withdrawal for consumers in the EU
+                </h2>
+                <p>
+                    6.1 For purchases via the Apple App Store/Google Play, the contract is concluded with the
+                    respective store; withdrawal/refunds are handled in accordance with the store’s rules. Please use
+                    the store tools for withdrawal/refund.
+                </p>
+                <p>
+                    6.2 Where, in exceptional cases, we are the contracting party for a digital content/service, you
+                    agree that we may start providing the service before the withdrawal period has expired and that you
+                    lose your right of withdrawal once the contract has been fully performed (section 356 (5) German
+                    Civil Code). Otherwise, the statutory right of withdrawal applies.
+                </p>
+
+                <h2 class="legal-section-title">
+                    7. User obligations, prohibited content and rules of conduct
+                </h2>
+                <p>
+                    7.1 The following are prohibited: unlawful, offensive, discriminatory, pornographic,
+                    extremist, misleading or otherwise inadmissible content; circumvention of technical protection
+                    measures; reverse engineering; scraping; and abusive use of interfaces.
+                </p>
+                <p>
+                    7.2 <strong>Community:</strong> Respectful behaviour is mandatory. We may moderate, block or remove
+                    content where a breach has occurred or is reasonably to be expected.
+                </p>
+
+                <h2 class="legal-section-title">
+                    8. User-generated content (UGC) and rights
+                </h2>
+                <p>
+                    8.1 You retain ownership of your content. By providing content you grant us a worldwide, non-exclusive,
+                    royalty-free, transferable, sub-licensable licence to use this content for operating, providing and
+                    improving the app (including storage, reproduction, technical processing, display and distribution
+                    within the app). Any use for advertising outside the app will only take place with your separate
+                    consent.
+                </p>
+                <p>
+                    8.2 You warrant that you hold the necessary rights and that your content does not infringe the
+                    rights of third parties.
+                </p>
+
+                <h2 class="legal-section-title">
+                    9. Third-party services, links, open source
+                </h2>
+                <p>
+                    9.1 The app may reference third-party services (websites, content, device integrations). Those
+                    third parties are solely responsible for their content and data protection practices.
+                </p>
+                <p>
+                    9.2 We may use open-source software; notices/licences will be made available in the app.
+                </p>
+
+                <h2 class="legal-section-title">
+                    10. Health integrations (Apple HealthKit/Google Fit etc.)
+                </h2>
+                <p>
+                    10.1 A connection is made only with your explicit consent; you may withdraw it at any time.
+                </p>
+                <p>
+                    10.2 We use data originating from health integrations solely to provide app features (e.g. steps,
+                    training analysis). We do not sell this data and do not use it for advertising or similar
+                    purposes. Data is only passed on to third parties where this is necessary for providing the service
+                    and as set out in our Privacy Policy.
+                </p>
+                <p>
+                    10.3 You can control read/write access in your device’s system settings.
+                </p>
+
+                <h2 class="legal-section-title">
+                    11. Availability, updates and changes
+                </h2>
+                <p>
+                    11.1 You are not entitled to uninterrupted availability. Maintenance, security and further
+                    development may lead to interruptions.
+                </p>
+                <p>
+                    11.2 During a subscription we provide necessary security and function updates and inform you where
+                    installation is required. Failing to install updates may impair functionality.
+                </p>
+                <p>
+                    11.3 We may change features to a reasonable extent. We will inform you of material changes to
+                    these Terms in due time (e.g. 30 days in advance). If you do not object or continue to use the app,
+                    the changes are deemed accepted; we will point this out in the notification.
+                </p>
+
+                <h2 class="legal-section-title">
+                    12. Warranty and liability
+                </h2>
+                <p>
+                    12.1 Statutory liability applies: we are liable without limitation in cases of intent and gross
+                    negligence as well as for injury to life, body or health. Claims under the Product Liability Act
+                    remain unaffected.
+                </p>
+                <p>
+                    12.2 In cases of slight negligence we are liable only for breaches of essential contractual
+                    obligations (cardinal obligations) and limited to the damage typical and foreseeable for the
+                    contract.
+                </p>
+                <p>
+                    12.3 For free use we are only liable for intent and gross negligence.
+                </p>
+                <p>
+                    12.4 Mandatory consumer protection rights remain unaffected.
+                </p>
+
+                <h2 class="legal-section-title">
+                    13. Term, termination, suspension
+                </h2>
+                <p>
+                    13.1 The usage relationship runs for an indefinite period and may be terminated by you at any time
+                    by deleting your account.
+                </p>
+                <p>
+                    13.2 Subscriptions must be cancelled in the respective app store; the store’s terms on notice
+                    periods and renewal apply.
+                </p>
+                <p>
+                    13.3 We may suspend or terminate the provision of the app for cause (e.g. repeated violations,
+                    misuse, payment default), taking your interests into account in a reasonable manner.
+                </p>
+
+                <h2 class="legal-section-title">
+                    14. Data protection
+                </h2>
+                <p>
+                    Our Privacy Policy applies. It explains which data we process, for which purposes and which rights
+                    you have (Art. 12–22 GDPR).
+                </p>
+
+                <h2 class="legal-section-title">
+                    15. Intellectual property and feedback
+                </h2>
+                <p>
+                    15.1 The app, its content (excluding UGC), trademarks and trade names are protected by copyright,
+                    trade mark and other intellectual property rights in favour of the provider and/or its licensors.
+                </p>
+                <p>
+                    15.2 We may use submitted feedback free of charge, without limitation in time or territory, to
+                    improve the app.
+                </p>
+
+                <h2 class="legal-section-title">
+                    16. Online dispute resolution, consumer dispute resolution
+                </h2>
+                <p>
+                    The European Commission provides a platform for online dispute resolution:
+                    <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">
+                        https://ec.europa.eu/consumers/odr/
+                    </a>.
+                </p>
+                <p>
+                    We are neither willing nor obliged to participate in dispute resolution proceedings before a
+                    consumer arbitration board.
+                </p>
+
+                <h2 class="legal-section-title">
+                    17. Applicable law, place of jurisdiction, contract language
+                </h2>
+                <p>
+                    The law of the Federal Republic of Germany applies, whereby mandatory provisions of the law of your
+                    country of residence within the EEA remain unaffected. The place of jurisdiction is – where
+                    permitted – the provider’s registered office. The contract language is German; any translations
+                    (e.g. English) are provided for information only. In case of discrepancies, the German version
+                    prevails.
+                </p>
+
+                <h2 class="legal-section-title">
+                    18. Severability
+                </h2>
+                <p>
+                    Should any provision be or become invalid, the remainder of the contract shall remain in force.
+                </p>
+
+                <p class="legal-meta">
+                    These Terms apply in addition to the terms of the respective app stores (e.g. Apple App Store,
+                    Google Play).
+                </p>
+            </div>
+        </section>
+    </div>
+</main>
+
+<footer>
+    <div class="container footer-inner">
+        <p class="footer-copy"
+           data-de="© 2025 Movo. Alle Rechte vorbehalten."
+           data-en="© 2025 Movo. All rights reserved.">
+            © 2025 Movo. Alle Rechte vorbehalten.
+        </p>
+        <nav>
+            <a href="index.html#home">Start</a>
+            <a href="index.html#features">Features</a>
+            <a href="blog.html">Articles</a>
+            <a href="impressum.html"
+               class="footer-link"
+               data-de="Impressum"
+               data-en="Imprint">Impressum</a>
+            <a href="datenschutz.html"
+               class="footer-link"
+               data-de="Datenschutz"
+               data-en="Privacy Policy">Datenschutz</a>
+            <a href="agb.html"
+               class="footer-link"
+               data-de="AGB"
+               data-en="Terms &amp; Conditions">AGB</a>
+        </nav>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const buttons = document.querySelectorAll('.lang-btn');
+        const sections = document.querySelectorAll('.lang-section');
+
+        function setLanguage(lang) {
+            // toggle sections
+            sections.forEach(section => {
+                if (section.classList.contains('lang-' + lang)) {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+
+            // toggle button state
+            buttons.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+
+            // update html lang attribute
+            document.documentElement.lang = lang;
+
+            // update texts with data-de / data-en attributes
+            document.querySelectorAll('[data-de]').forEach(el => {
+                const text = lang === 'de'
+                    ? el.getAttribute('data-de')
+                    : el.getAttribute('data-en');
+                if (text) {
+                    el.textContent = text;
+                }
+            });
+        }
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function () {
+                const lang = this.dataset.lang;
+                setLanguage(lang);
+            });
+        });
+
+        // initial language (DE)
+        setLanguage('de');
+    });
+</script>
+</body>
+</html>

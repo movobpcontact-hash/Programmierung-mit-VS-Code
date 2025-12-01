@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movo – Training Guides & Blog</title>
+    <style>
+        :root {
+            --bg: #f9fafb;
+            --bg-soft: #f3f4f6;
+            --card: #ffffff;
+            --accent: #2563eb;
+            --accent-soft: rgba(37, 99, 235, 0.09);
+            --text-main: #0f172a;
+            --text-muted: #6b7280;
+            --border-subtle: rgba(148, 163, 184, 0.6);
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            --shadow-soft: 0 18px 60px rgba(15, 23, 42, 0.14);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background: radial-gradient(circle at top left, #e5e7eb 0, #f9fafb 40%, #f3f4f6 100%);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* HEADER / NAV */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+        }
+
+        .logo-img {
+            height: 40px;
+            width: auto;
+            display: block;
+            transform: scale(1.5);
+            transform-origin: left center;
+            filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.45));
+            transition: transform 0.18s ease, filter 0.18s ease;
+        }
+
+        .logo:hover .logo-img {
+            transform: scale(1.6);
+            filter: drop-shadow(0 0 14px rgba(59, 130, 246, 0.7));
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .nav-links a {
+            position: relative;
+            padding-bottom: 4px;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            border-radius: 999px;
+            background: var(--accent);
+            transition: width 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #111827;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        /* APP STORE BADGE */
+
+        .store-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: #000000;
+            color: #f9fafb;
+            font-size: 12px;
+            font-weight: 500;
+            box-shadow: 0 12px 26px rgba(15, 23, 42, 0.35);
+            transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+            white-space: nowrap;
+        }
+
+        .store-badge span.icon {
+            font-size: 18px;
+        }
+
+        .store-badge:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 18px 32px rgba(15, 23, 42, 0.45);
+            background: #111827;
+        }
+
+        /* GENERIC TYPOGRAPHY */
+
+        .section-kicker {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            letter-spacing: -0.03em;
+            margin-bottom: 8px;
+        }
+
+        .section-text {
+            font-size: 14px;
+            color: var(--text-muted);
+            max-width: 540px;
+        }
+
+        /* BLOG PAGE */
+
+        .blog-hero {
+            padding: 64px 0 40px;
+            background: radial-gradient(circle at top left, #e0ecff 0, #f9fafb 45%, #ffffff 100%);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+        }
+
+        .blog-hero-meta {
+            margin-top: 18px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .blog-hero-meta span {
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: #f9fafb;
+            border: 1px solid rgba(148, 163, 184, 0.6);
+        }
+
+        .blog-list {
+            padding: 40px 0 72px;
+            background: #f9fafb;
+        }
+
+        .blog-list-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            display: grid;
+            gap: 32px;
+        }
+
+        .blog-post {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 24px 24px 22px;
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+            font-size: 14px;
+        }
+
+        .blog-post h2 {
+            font-size: 20px;
+            letter-spacing: -0.02em;
+            margin-bottom: 6px;
+        }
+
+        .blog-post h3 {
+            font-size: 15px;
+            margin-top: 16px;
+            margin-bottom: 4px;
+        }
+
+        .blog-post p {
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .blog-post ul {
+            margin: 0 0 10px 18px;
+            color: var(--text-muted);
+        }
+
+        .blog-post li + li {
+            margin-top: 3px;
+        }
+
+        .blog-post-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 3px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--text-muted);
+            background: #f9fafb;
+            margin-bottom: 8px;
+        }
+
+        .blog-post-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid rgba(148, 163, 184, 0.4);
+            padding: 24px 0 30px;
+            font-size: 12px;
+            color: var(--text-muted);
+            background: #ffffff;
+        }
+
+        footer .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        footer nav {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        footer a {
+            font-size: 12px;
+        }
+
+        footer a:hover {
+            color: #111827;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 960px) {
+            .nav-links {
+                display: none;
+            }
+
+            .blog-hero {
+                padding: 48px 0 32px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .blog-post {
+                padding: 20px 18px 18px;
+                border-radius: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container nav">
+        <div class="logo">
+            <!-- Adjust the path if your logo is somewhere else -->
+            <a href="index.html#home">
+                <img src="img/movo.logo.png" alt="Movo - Gym Tracker & Planner" class="logo-img">
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html#home">Home</a>
+            <a href="index.html#features">Movo App</a>
+            <a href="blog.html">Articles</a>
+            <a href="index.html#about">About us</a>
+        </nav>
+        <div class="nav-cta">
+            <a href="https://apps.apple.com/de/app/movo-gym-tracker-planner/id6754493657"
+               class="store-badge">
+                <span class="icon"></span>
+                <span>Download on the App Store</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- BLOG HERO -->
+    <section class="blog-hero">
+        <div class="container">
+            <div class="section-kicker">Blog</div>
+            <h1 class="section-title">Training guides &amp; app updates</h1>
+            <p class="section-text">
+                Short, practical articles on strength training, routine design and how to
+                use Movo in real life – written so you can read them once and apply them
+                for months.
+            </p>
+
+            <div class="blog-hero-meta">
+                <span>🏋️ Strength training</span>
+                <span>📅 Programming</span>
+                <span>📱 App tips</span>
+                <span>⏱ 4–8 min reads</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG LIST -->
+    <section class="blog-list">
+        <div class="container blog-list-inner">
+
+            <!-- ARTICLE 1 -->
+            <article id="progressive-overload" class="blog-post">
+                <div class="blog-post-pill">Training guide</div>
+                <h2>Progressive overload in practice</h2>
+                <div class="blog-post-meta">
+                    <span>🏋️ Strength</span>
+                </div>
+
+                <p>
+                    “Progressive overload” is one of those phrases that gets thrown around a lot,
+                    but in the gym it should feel very simple: <strong>do a little more over time</strong>.
+                    Not every session needs to be a hero workout. What matters is that over the span of
+                    weeks and months, your body sees a clear trend upwards.
+                </p>
+
+                <h3>What progressive overload really means</h3>
+                <p>
+                    Overload is simply asking your body to do slightly more work than it is used to.
+                    That “more” can come from several places – and you don’t have to max out all of
+                    them at once. In most cases, increasing one variable at a time is enough:
+                </p>
+                <ul>
+                    <li><strong>More weight</strong> on the bar or dumbbells</li>
+                    <li><strong>More reps</strong> with the same weight</li>
+                    <li><strong>More sets</strong> across the whole session</li>
+                    <li><strong>More quality</strong> – better technique, tighter range of motion</li>
+                </ul>
+                <p>
+                    As long as one of these moves up slowly while you recover well, you are progressing.
+                    The problem starts when we try to push all of them at once and ignore fatigue.
+                </p>
+
+                <h3>A simple weekly progression model</h3>
+                <p>
+                    Here’s a progression pattern that works for most lifters on main compound lifts:
+                </p>
+                <ul>
+                    <li>Pick a rep range, e.g. <strong>4–6 reps</strong> for heavy work.</li>
+                    <li>Start with a weight where you can do 4 clean reps for all sets.</li>
+                    <li>Each week, try to add <strong>1 rep per set</strong> until you hit 6 reps.</li>
+                    <li>Once you can do 6 reps on all sets, <strong>add a small amount of weight</strong>
+                        (e.g. 2.5 kg) and go back to 4–5 reps.</li>
+                </ul>
+                <p>
+                    Accessory work can progress in a similar way but with higher rep ranges
+                    (8–12, 10–15, etc.). Progress there will feel less dramatic but still adds up.
+                </p>
+
+                <h3>Common mistakes to avoid</h3>
+                <ul>
+                    <li>
+                        <strong>Changing exercises every week.</strong>
+                        If your main lifts constantly change, it’s impossible to see clear progress.
+                        Stick with key movements for at least 8–12 weeks.
+                    </li>
+                    <li>
+                        <strong>Going to failure on every set.</strong>
+                        Failure has its place, but if every set is a grind, fatigue will outpace progress.
+                        Aim for 1–3 reps in reserve on most working sets.
+                    </li>
+                    <li>
+                        <strong>Ignoring bad days.</strong>
+                        Not every session will be a PR. If you feel off, keep the weight,
+                        reduce volume a bit and move on. Consistency beats perfection.
+                    </li>
+                </ul>
+
+                <h3>How to track overload inside Movo</h3>
+                <p>
+                    Movo is built around progressive overload, so the app does the “remembering” for you.
+                    You just make the next small decision.
+                </p>
+                <ul>
+                    <li>
+                        Use <strong>exercise stats</strong> to see your heaviest sets, recent volume
+                        and last training date. This gives you instant context when you open an exercise.
+                    </li>
+                    <li>
+                        In templates, keep your <strong>target rep ranges</strong> visible
+                        (e.g. “4–6” or “8–10”) so you always know what to aim for.
+                    </li>
+                    <li>
+                        After each set, <strong>update weight and reps</strong> directly on the logging
+                        screen – no need to switch views. Over time, your history shows the progression.
+                    </li>
+                    <li>
+                        Review the <strong>training history</strong> once per week to see which lifts
+                        moved forward and where you might need a lighter week.
+                    </li>
+                </ul>
+                <p>
+                    The rule of thumb: if a lift hasn’t moved in 4–6 weeks, adjust something – rep range,
+                    volume, exercise selection or recovery. Movo gives you the data; you adjust the plan.
+                </p>
+            </article>
+
+            <!-- ARTICLE 2 -->
+            <article id="routines" class="blog-post">
+                <div class="blog-post-pill">Programs &amp; routines</div>
+                <h2>Building routines that actually stick</h2>
+                <div class="blog-post-meta">
+                    <span>📅 Programming</span>
+                </div>
+
+                <p>
+                    Most lifters don’t fail because their program is bad on paper. They fail because
+                    their program <strong>doesn’t fit their real life</strong>. Travel, work, social life
+                    and energy levels matter more than the perfect exercise split.
+                </p>
+
+                <h3>Start from your week, not from a template</h3>
+                <p>
+                    Before picking a split, be honest about how many days you can realistically train
+                    for the next 8–12 weeks. Not in a fantasy week, but in an average one.
+                </p>
+                <ul>
+                    <li><strong>2–3 days per week:</strong> Full body or simple Push / Pull / Legs.</li>
+                    <li><strong>4 days per week:</strong> Upper / Lower repeated, or PPL + 1 focus day.</li>
+                    <li><strong>5–6 days per week:</strong> PPL twice, or a mix of strength + lighter days.</li>
+                </ul>
+                <p>
+                    If you’re unsure, choose one day less than you think. It’s easier to add an extra
+                    session than to feel like you’re failing a too-aggressive plan.
+                </p>
+
+                <h3>Rules of thumb for exercise selection</h3>
+                <p>
+                    You don’t need 20 different movements per muscle group. A small, consistent set of
+                    exercises usually works best:
+                </p>
+                <ul>
+                    <li>
+                        <strong>1–2 big compounds</strong> per session (squat, hinge, press, row).
+                    </li>
+                    <li>
+                        <strong>2–4 accessories</strong> targeting the main muscle groups you care about.
+                    </li>
+                    <li>
+                        <strong>Optional “nice-to-have” work</strong> at the end (calves, rear delts, abs).
+                    </li>
+                </ul>
+                <p>
+                    Keep the main lifts stable for at least 8 weeks. Accessory movements can rotate a bit
+                    more, but avoid changing everything at once – otherwise your progress is hard to read.
+                </p>
+
+                <h3>Turning your routine into Movo templates</h3>
+                <p>
+                    Once you have a rough structure, you can turn it into reusable templates inside Movo
+                    so that starting a workout takes seconds instead of minutes.
+                </p>
+                <ul>
+                    <li>
+                        Create a template for each training day, e.g. <strong>“Upper A”</strong>,
+                        <strong>“Lower B”</strong>, <strong>“Full Body 1”</strong>.
+                    </li>
+                    <li>
+                        Add exercises in the order you actually perform them in the gym. This makes
+                        logging feel natural and keeps you from scrolling around.
+                    </li>
+                    <li>
+                        For each exercise, set <strong>sets and a rep range</strong> instead of a fixed
+                        rep number. This gives you room to progress without editing the template.
+                    </li>
+                    <li>
+                        If you sometimes superset movements, group them next to each other in the template
+                        and use Movo’s fast logging to jump between them.
+                    </li>
+                </ul>
+                <p>
+                    You can still adjust things on the fly – swapping an exercise if a machine is taken,
+                    or adding a bonus set. The template is there to save you thinking in the moment,
+                    not to lock you into a rigid script.
+                </p>
+
+                <h3>Signs your routine is working</h3>
+                <ul>
+                    <li>You can follow it for several weeks without burning out.</li>
+                    <li>Your main lifts are moving up slowly but consistently.</li>
+                    <li>You feel tired after sessions, but not destroyed for days.</li>
+                    <li>You don’t dread training – even on long work days.</li>
+                </ul>
+                <p>
+                    If one of these breaks, adjust the plan, not your expectations. Reduce volume,
+                    simplify the split or cut optional accessories. The best routine is the one you
+                    can run for months, not just two perfect weeks.
+                </p>
+            </article>
+
+            <!-- ARTICLE 3 -->
+            <article id="widgets" class="blog-post">
+                <div class="blog-post-pill">App tips</div>
+                <h2>Using widgets &amp; Health data to stay consistent</h2>
+                <div class="blog-post-meta">
+                    <span>📱 App &amp; iOS</span>
+                </div>
+
+                <p>
+                    Your progress isn’t only decided by what happens in a 60–90 minute gym session.
+                    Steps, sleep, daily movement and how often you actually train shape your results
+                    just as much. The good news: you don’t have to micromanage all of it.
+                </p>
+
+                <h3>Why “outside the gym” data matters</h3>
+                <p>
+                    Think of your training as the signal and your lifestyle as the environment it grows in.
+                    If you do everything right in the gym but sit 10 hours a day and rarely move, progress
+                    will be slower and recovery more hit-and-miss.
+                </p>
+                <p>
+                    You don’t need perfect tracking. You just need <strong>a couple of numbers</strong>
+                    that keep you honest: roughly how many steps you get, and whether you’re hitting the
+                    training days you planned.
+                </p>
+
+                <h3>Three simple widget setups that work</h3>
+                <ul>
+                    <li>
+                        <strong>Weekly training goal widget.</strong>
+                        See at a glance how many sessions you planned vs. how many you already completed.
+                        “3 / 4 workouts this week” is a powerful nudge when you unlock your phone.
+                    </li>
+                    <li>
+                        <strong>Steps over 7 days.</strong>
+                        Instead of chasing a perfect 10k every day, look at your weekly average.
+                        A widget that shows your last 7 days helps you spot lazy streaks without stress.
+                    </li>
+                    <li>
+                        <strong>Streaks &amp; challenges.</strong>
+                        Use challenges like “5 workouts per week” or “12,000 steps per day” not as
+                        pressure, but as a game. Your home screen becomes a quiet accountability partner.
+                    </li>
+                </ul>
+
+                <h3>How Movo connects with Apple Health</h3>
+                <p>
+                    When you link Movo with Apple Health, the app can read your steps and activity data
+                    and display them next to your training stats. That way, you see training and daily
+                    movement in one place instead of jumping between different apps.
+                </p>
+                <ul>
+                    <li>
+                        Enable <strong>Health sync</strong> inside Movo and allow access to steps and workouts.
+                    </li>
+                    <li>
+                        Add the <strong>Movo widgets</strong> to your Home Screen and lock screen so you
+                        see your goals without opening the app.
+                    </li>
+                    <li>
+                        Check in once per week: did you hit your training goal and roughly your movement goal?
+                    </li>
+                </ul>
+
+                <h3>Keep it light, not obsessive</h3>
+                <p>
+                    The goal of widgets and Health integration isn’t to give you one more thing to obsess about.
+                    It’s the opposite: you outsource remembering to your phone, so your brain can relax.
+                </p>
+                <p>
+                    If you notice yourself checking numbers every hour, zoom out. Look at trends instead of
+                    individual days. Training and steps are there to support your life – not to become it.
+                </p>
+                <p>
+                    Used that way, Movo becomes more than a workout tracker. It’s a quiet dashboard that shows
+                    whether your actions this week actually match the goals you care about.
+                </p>
+            </article>
+
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container footer-inner">
+        <p>© 2025 Movo. All rights reserved.</p>
+        <nav>
+            <a href="index.html#home">Home</a>
+            <a href="index.html#features">Movo App</a>
+            <a href="blog.html">Articles</a>
+            <a href="index.html#about">About us</a>
+            <a href="impressum.html">Impressum</a>
+            <a href="datenschutz.html">Datenschutz</a>
+            <a href="agb.html">AGB</a>
+        </nav>
+    </div>
+</footer>
+</body>
+</html>
