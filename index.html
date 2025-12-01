@@ -45,128 +45,7 @@
             padding: 0 24px;
         }
 
-        /* HEADER / NAV */
-
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            backdrop-filter: blur(12px);
-            background: rgba(255, 255, 255, 0.9);
-            border-bottom: 1px solid rgba(148, 163, 184, 0.3);
-        }
-
-        .nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 0;
-            position: relative;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            position: relative;
-        }
-
-        .logo-img {
-            height: 40px;
-            width: auto;
-            display: block;
-            transform: scale(1.5);
-            transform-origin: center center;
-            filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.45));
-            transition: transform 0.18s ease, filter 0.18s ease;
-        }
-
-        .logo:hover .logo-img {
-            transform: scale(1.6);
-            filter: drop-shadow(0 0 14px rgba(59, 130, 246, 0.7));
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-            font-size: 14px;
-            color: var(--text-muted);
-        }
-
-        .nav-links a {
-            position: relative;
-            padding-bottom: 4px;
-            transition: color 0.2s ease;
-        }
-
-        .nav-links a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 0;
-            height: 2px;
-            border-radius: 999px;
-            background: var(--accent);
-            transition: width 0.2s ease;
-        }
-
-        .nav-links a:hover {
-            color: #111827;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-cta {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
-
-        /* MOBILE MENU TOGGLE */
-
-    /* Neues Design für den Mobile-Hamburger */
-.menu-toggle {
-    display: none; /* bleibt nur mobil sichtbar */
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 999px;
-    border: 1px solid rgba(148, 163, 184, 0.7);
-    background: rgba(255, 255, 255, 0.95);
-    cursor: pointer;
-    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.16);
-    position: absolute;
-    right: 24px;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: background 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease;
-}
-
-.menu-toggle span {
-    display: block;
-    width: 17px;
-    height: 2px;
-    border-radius: 999px;
-    background: #2563eb; /* statt weiß auf schwarz */
-}
-
-.menu-toggle span + span {
-    margin-top: 4px;
-}
-
-.menu-toggle:hover {
-    background: #eff6ff;
-    box-shadow: 0 12px 26px rgba(37, 99, 235, 0.25);
-    transform: translateY(-52%);
-}
-
-
-        /* --- Cleaner Header Look --- */
+/* HEADER / NAV */
 
 header {
     position: sticky;
@@ -182,71 +61,125 @@ header {
 }
 
 .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 10px 0;
+    position: relative;
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
-        /* MOBILE NAV OVERLAY */
+.logo-img {
+    height: 32px;
+    width: auto;
+    display: block;
+    transform: none;
+    filter: none;
+}
 
-        .nav-mobile {
-            display: none;
-            background: #ffffff;
-            border-bottom: 1px solid rgba(148, 163, 184, 0.25);
-            box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
-        }
+/* Desktop-Navigation */
 
-        .nav-mobile-inner {
-            max-width: 1120px;
-            margin: 0 auto;
-            padding: 12px 24px 18px;
-        }
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    font-size: 14px;
+    color: var(--text-muted);
+}
 
-        .nav-mobile a {
-            display: block;
-            padding: 6px 0;
-            font-size: 16px;
-            color: var(--text-main);
-        }
+.nav-links a {
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.2s ease;
+}
 
-        .nav-mobile a + a {
-            margin-top: 4px;
-        }
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--accent);
+    transition: width 0.2s ease;
+}
 
-        .nav-mobile .store-badge {
-            margin-top: 12px;
-            color: #f9fafb !important; /* Text im Menü immer weiß */
-        }
+.nav-links a:hover {
+    color: #111827;
+}
 
-        body.nav-open {
-            overflow: hidden;
-        }
+.nav-links a:hover::after {
+    width: 100%;
+}
 
-        
-      @media (max-width: 960px) {
-    /* Navigationselemente auf Handy ausblenden */
-    .nav-links {
-        display: none;
-    }
+.nav-cta {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
 
-    .nav-cta {
-        display: none;
-    }
+/* Mobile-Menu-Elemente (werden wir gleich ausblenden) */
 
-    .menu-toggle {
-        display: none; /* Hamburger komplett weg */
-    }
+.menu-toggle {
+    display: none;
+}
 
+.nav-mobile {
+    display: none;
+}
+
+/* App Store Badge nur im Header */
+header .store-badge {
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    color: #eff6ff;
+    box-shadow: 0 14px 32px rgba(37, 99, 235, 0.45);
+    border: none;
+    padding: 7px 16px;
+    font-size: 12px;
+}
+
+header .store-badge span.icon {
+    font-size: 18px;
+}
+
+header .store-badge:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 18px 40px rgba(37, 99, 235, 0.6);
+    background: linear-gradient(135deg, #1d4ed8, #4338ca);
+}
+
+/* --- MOBILE: nur noch Logo, kein eigener Header-Streifen --- */
+
+@media (max-width: 960px) {
+    /* Alles außer Logo ausblenden */
+    .nav-links,
+    .nav-cta,
+    .menu-toggle,
     .nav-mobile {
-        display: none !important; /* Sicherstellen, dass kein Dropdown mehr auftaucht */
+        display: none !important;
     }
 
-    /* Header-Layout: Logo links statt alles zentriert */
+    /* Header auf Handy NICHT sticky, transparent */
+    header {
+        position: static;
+        background: transparent;
+        border-bottom: none;
+        backdrop-filter: none;
+    }
+
     header .nav {
-        justify-content: flex-start;
+        justify-content: center;   /* Logo zentrieren */
+        padding: 12px 0 0;        /* wenig Abstand nach oben */
     }
 
-    .logo {
-        margin: 0;
+    .logo-img {
+        height: 26px;             /* kleineres Logo für Mobile */
     }
 }
 
