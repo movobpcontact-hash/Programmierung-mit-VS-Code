@@ -127,40 +127,41 @@
 
         /* HAMBURGER BUTTON */
 
-        .nav-toggle {
-            display: none;
-            width: 36px;
-            height: 36px;
-            border-radius: 999px;
-            border: none;
-            background: #111827;
-            color: #f9fafb;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
+.nav-toggle {
+    display: none;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: transparent; /* kein schwarzer Kreis mehr */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;               /* optional: sichergehen, dass nichts aufbläht */
+}
 
-        .nav-toggle-lines {
-            width: 18px;
-            height: 2px;
-            border-radius: 999px;
-            background: #f9fafb;
-            position: relative;
-        }
 
-        .nav-toggle-lines::before,
-        .nav-toggle-lines::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            width: 18px;
-            height: 2px;
-            border-radius: 999px;
-            background: #f9fafb;
-        }
+.nav-toggle-lines {
+    width: 18px;
+    height: 2px;
+    border-radius: 999px;
+    background: #000000; /* schwarz */
+    position: relative;
+}
 
-        .nav-toggle-lines::before { top: -5px; }
-        .nav-toggle-lines::after  { top:  5px; }
+.nav-toggle-lines::before,
+.nav-toggle-lines::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 18px;
+    height: 2px;
+    border-radius: 999px;
+    background: #000000; /* ebenfalls schwarz */
+}
+
+.nav-toggle-lines::before { top: -5px; }
+.nav-toggle-lines::after  { top:  5px; }
+
 
         /* MOBILE DROPDOWN-MENU */
 
