@@ -128,34 +128,63 @@
 
         /* MOBILE MENU TOGGLE */
 
-        .menu-toggle {
-            display: none;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            border-radius: 999px;
-            border: none;
-            background: #111827;
-            cursor: pointer;
-            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.4);
-            position: absolute;
-            right: 24px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
+    /* Neues Design für den Mobile-Hamburger */
+.menu-toggle {
+    display: none; /* bleibt nur mobil sichtbar */
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.7);
+    background: rgba(255, 255, 255, 0.95);
+    cursor: pointer;
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.16);
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: background 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease;
+}
 
-        .menu-toggle span {
-            display: block;
-            width: 18px;
-            height: 2px;
-            border-radius: 999px;
-            background: #f9fafb;
-        }
+.menu-toggle span {
+    display: block;
+    width: 17px;
+    height: 2px;
+    border-radius: 999px;
+    background: #2563eb; /* statt weiß auf schwarz */
+}
 
-        .menu-toggle span + span {
-            margin-top: 4px;
-        }
+.menu-toggle span + span {
+    margin-top: 4px;
+}
+
+.menu-toggle:hover {
+    background: #eff6ff;
+    box-shadow: 0 12px 26px rgba(37, 99, 235, 0.25);
+    transform: translateY(-52%);
+}
+
+
+        /* --- Cleaner Header Look --- */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(18px);
+    background: linear-gradient(
+        90deg,
+        rgba(249, 250, 251, 0.95),
+        rgba(239, 246, 255, 0.96)
+    );
+    border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.nav {
+    padding: 10px 0;
+}
+
 
         /* MOBILE NAV OVERLAY */
 
@@ -272,30 +301,26 @@
 
         /* APP STORE BADGE */
 
-        .store-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 14px;
-            border-radius: 999px;
-            background: #000000;
-            color: #f9fafb;
-            font-size: 12px;
-            font-weight: 500;
-            box-shadow: 0 12px 26px rgba(15, 23, 42, 0.35);
-            transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
-            white-space: nowrap;
-        }
+     /* App Store Badge nur im Header neu stylen */
+header .store-badge {
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    color: #eff6ff;
+    box-shadow: 0 14px 32px rgba(37, 99, 235, 0.45);
+    border: none;
+    padding: 7px 16px;
+    font-size: 12px;
+}
 
-        .store-badge span.icon {
-            font-size: 18px;
-        }
+header .store-badge span.icon {
+    font-size: 18px;
+}
 
-        .store-badge:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 18px 32px rgba(15, 23, 42, 0.45);
-            background: #111827;
-        }
+header .store-badge:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 18px 40px rgba(37, 99, 235, 0.6);
+    background: linear-gradient(135deg, #1d4ed8, #4338ca);
+}
+
 
         /* HERO SECTION */
 
