@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movo – Impressum</title>
+    <style>
+        :root {
+            --bg: #f9fafb;
+            --card: #ffffff;
+            --accent: #2563eb;
+            --text-main: #0f172a;
+            --text-muted: #6b7280;
+            --border-subtle: rgba(148, 163, 184, 0.6);
+            --radius-lg: 24px;
+            --shadow-soft: 0 18px 60px rgba(15, 23, 42, 0.14);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background: radial-gradient(circle at top left, #e5e7eb 0, #f9fafb 40%, #f3f4f6 100%);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* HEADER / NAV */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.92);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+        }
+
+        .logo-img {
+            height: 40px;
+            width: auto;
+            display: block;
+            transform: scale(1.5);
+            transform-origin: left center;
+            filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.45));
+            transition: transform 0.18s ease, filter 0.18s ease;
+        }
+
+        .logo:hover .logo-img {
+            transform: scale(1.6);
+            filter: drop-shadow(0 0 14px rgba(59, 130, 246, 0.7));
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .nav-links a {
+            position: relative;
+            padding-bottom: 4px;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            border-radius: 999px;
+            background: var(--accent);
+            transition: width 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #111827;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        @media (max-width: 800px) {
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* MAIN LEGAL CONTENT */
+
+        .legal-main {
+            padding: 48px 0 64px;
+        }
+
+        .legal-title {
+            font-size: 28px;
+            letter-spacing: -0.03em;
+            margin-bottom: 8px;
+        }
+
+        .legal-kicker {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .legal-subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            max-width: 520px;
+        }
+
+        .legal-card {
+            background: var(--card);
+            border-radius: var(--radius-lg);
+            padding: 22px 22px 20px;
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-soft);
+            font-size: 14px;
+        }
+
+        .legal-section-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 16px;
+            margin-bottom: 4px;
+        }
+
+        .legal-section-title:first-of-type {
+            margin-top: 0;
+        }
+
+        .legal-card p + p {
+            margin-top: 4px;
+        }
+
+        .legal-meta {
+            margin-top: 18px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* LANGUAGE SWITCHER */
+
+        .language-switcher {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .lang-btn {
+            padding: 4px 12px;
+            border-radius: 999px;
+            border: 1px solid var(--border-subtle);
+            background: #ffffff;
+            font-size: 12px;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: background 0.12s ease, color 0.12s ease,
+                        box-shadow 0.12s ease, border-color 0.12s ease;
+        }
+
+        .lang-btn.active {
+            background: var(--accent);
+            color: #eff6ff;
+            border-color: var(--accent);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+        }
+
+        .lang-btn:hover:not(.active) {
+            background: #f3f4f6;
+        }
+
+        .lang-section {
+            /* so the JS can toggle display */
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid rgba(148, 163, 184, 0.4);
+            padding: 20px 0 26px;
+            font-size: 12px;
+            color: var(--text-muted);
+            background: #ffffff;
+        }
+
+        footer .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        footer nav {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        footer a {
+            font-size: 12px;
+        }
+
+        footer a:hover {
+            color: #111827;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container nav">
+        <div class="logo">
+            <a href="index.html#home">
+                <img src="img/movo.logo.png" alt="Movo – Gym Tracker & Planner" class="logo-img">
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html#home">Home</a>
+            <a href="index.html#features">Movo App</a>
+            <a href="blog.html">Articles</a>
+            <a href="index.html#about">About us</a>
+        </nav>
+    </div>
+</header>
+
+<main class="legal-main">
+    <div class="container">
+
+        <!-- Language switcher -->
+        <div class="language-switcher" aria-label="Sprachauswahl / Language selection">
+            <button class="lang-btn active" data-lang="de" type="button">DE</button>
+            <button class="lang-btn" data-lang="en" type="button">EN</button>
+        </div>
+
+        <!-- German version -->
+        <section class="lang-section lang-de">
+            <div class="legal-kicker">Impressum</div>
+            <h1 class="legal-title">Impressum &amp; Anbieterkennzeichnung</h1>
+            <p class="legal-subtitle">
+                Angaben gemäß § 5 TMG und § 18 MStV für die App „Movo – Gym Tracker &amp; Planner“.
+            </p>
+
+            <div class="legal-card">
+                <h2 class="legal-section-title">Anbieter / Verantwortlicher</h2>
+                <p><strong>Benedikt Purkott</strong></p>
+                <p>
+                    c/o Block Services<br>
+                    Stuttgarter Str. 106<br>
+                    70736 Fellbach<br>
+                    Deutschland
+                </p>
+
+                <h2 class="legal-section-title">Kontakt</h2>
+                <p>
+                    E-Mail: <a href="mailto:movobp.contact@gmail.com">movobp.contact@gmail.com</a>
+                </p>
+                <p>
+                    Für telefonische Anfragen nutzen Sie bitte das Kontaktformular in der App
+                    oder schreiben Sie uns eine E-Mail an
+                    <a href="mailto:movobp.contact@gmail.com">movobp.contact@gmail.com</a>.
+                </p>
+
+                <h2 class="legal-section-title">Hinweis zur Erreichbarkeit</h2>
+                <p>
+                    Dieses Impressum ist in der App jederzeit über
+                    <strong>Einstellungen → „Impressum &amp; AGB“</strong> abrufbar.
+                </p>
+
+                <h2 class="legal-section-title">Haftung für Inhalte</h2>
+                <p>
+                    Die Inhalte dieser App wurden mit größter Sorgfalt erstellt.
+                    Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte
+                    kann jedoch keine Gewähr übernommen werden.
+                </p>
+
+                <h2 class="legal-section-title">Haftung für Links</h2>
+                <p>
+                    Diese App kann Links zu externen Webseiten Dritter enthalten, auf deren Inhalte wir
+                    keinen Einfluss haben. Für die Inhalte der verlinkten Seiten ist stets der jeweilige
+                    Anbieter oder Betreiber der Seiten verantwortlich.
+                </p>
+
+                <h2 class="legal-section-title">Hinweis zu KI-Inhalten</h2>
+                <p>
+                    Einige Texte, Beschreibungen und Hinweise in dieser App wurden mit Unterstützung
+                    künstlicher Intelligenz (z. B. ChatGPT) erstellt oder überarbeitet. Alle Inhalte
+                    wurden vor Veröffentlichung manuell geprüft und redaktionell angepasst.
+                </p>
+
+                <p class="legal-meta">
+                    Stand: Oktober 2025
+                </p>
+            </div>
+        </section>
+
+        <!-- English version -->
+        <section class="lang-section lang-en" style="display:none;">
+            <div class="legal-kicker">Imprint</div>
+            <h1 class="legal-title">Imprint &amp; Provider Identification</h1>
+            <p class="legal-subtitle">
+                Information pursuant to Sec. 5 German Telemedia Act (TMG) and Sec. 18 Media State
+                Treaty (MStV) for the app “Movo – Gym Tracker &amp; Planner”.
+            </p>
+
+            <div class="legal-card">
+                <h2 class="legal-section-title">Provider / Responsible</h2>
+                <p><strong>Benedikt Purkott</strong></p>
+                <p>
+                    c/o Block Services<br>
+                    Stuttgarter Str. 106<br>
+                    70736 Fellbach<br>
+                    Germany
+                </p>
+
+                <h2 class="legal-section-title">Contact</h2>
+                <p>
+                    E-mail: <a href="mailto:movobp.contact@gmail.com">movobp.contact@gmail.com</a>
+                </p>
+                <p>
+                    For telephone enquiries, please use the contact form in the app
+                    or send us an e-mail to
+                    <a href="mailto:movobp.contact@gmail.com">movobp.contact@gmail.com</a>.
+                </p>
+
+                <h2 class="legal-section-title">Availability of this imprint</h2>
+                <p>
+                    This imprint can be accessed within the app at any time via
+                    <strong>Settings → “Imprint &amp; Terms”</strong>.
+                </p>
+
+                <h2 class="legal-section-title">Liability for content</h2>
+                <p>
+                    The contents of this app have been created with the greatest possible care.
+                    However, we cannot assume any liability for the correctness, completeness
+                    and up-to-dateness of the contents.
+                </p>
+
+                <h2 class="legal-section-title">Liability for links</h2>
+                <p>
+                    This app may contain links to external websites of third parties, the contents
+                    of which are beyond our control. The respective provider or operator of the
+                    sites is always responsible for the contents of the linked sites.
+                </p>
+
+                <h2 class="legal-section-title">Note on AI-generated content</h2>
+                <p>
+                    Some texts, descriptions and information in this app were created or edited with
+                    the support of artificial intelligence (e.g. ChatGPT). All content was manually
+                    reviewed and editorially adapted before publication.
+                </p>
+
+                <p class="legal-meta">
+                    Last updated: October 2025
+                </p>
+            </div>
+        </section>
+    </div>
+</main>
+
+<footer>
+    <div class="container footer-inner">
+        <p class="footer-copy"
+           data-de="© 2025 Movo. Alle Rechte vorbehalten."
+           data-en="© 2025 Movo. All rights reserved.">
+            © 2025 Movo. Alle Rechte vorbehalten.
+        </p>
+        <nav>
+            <a href="index.html#home">Home</a>
+            <a href="index.html#features">Movo App</a>
+            <a href="blog.html">Articles</a>
+            <a href="index.html#about">About us</a>
+            <a href="impressum.html"
+               class="footer-link"
+               data-de="Impressum"
+               data-en="Imprint">Impressum</a>
+            <a href="datenschutz.html"
+               class="footer-link"
+               data-de="Datenschutz"
+               data-en="Privacy Policy">Datenschutz</a>
+            <a href="agb.html"
+               class="footer-link"
+               data-de="AGB"
+               data-en="Terms &amp; Conditions">AGB</a>
+        </nav>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const buttons = document.querySelectorAll('.lang-btn');
+        const sections = document.querySelectorAll('.lang-section');
+
+        function setLanguage(lang) {
+            // toggle sections
+            sections.forEach(section => {
+                if (section.classList.contains('lang-' + lang)) {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+
+            // toggle button active state
+            buttons.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+
+            // update html lang attribute
+            document.documentElement.lang = lang;
+
+            // update footer texts
+            document.querySelectorAll('[data-de]').forEach(el => {
+                const text = lang === 'de'
+                    ? el.getAttribute('data-de')
+                    : el.getAttribute('data-en');
+                if (text) {
+                    el.textContent = text;
+                }
+            });
+        }
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function () {
+                const lang = this.dataset.lang;
+                setLanguage(lang);
+            });
+        });
+
+        // Initial language (DE)
+        setLanguage('de');
+    });
+</script>
+</body>
+</html>
