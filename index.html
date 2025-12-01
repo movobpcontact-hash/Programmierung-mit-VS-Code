@@ -45,144 +45,158 @@
             padding: 0 24px;
         }
 
-/* HEADER / NAV */
+        /* HEADER / NAV */
 
-header {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    backdrop-filter: blur(18px);
-    background: linear-gradient(
-        90deg,
-        rgba(249, 250, 251, 0.95),
-        rgba(239, 246, 255, 0.96)
-    );
-    border-bottom: 1px solid rgba(148, 163, 184, 0.25);
-}
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+        }
 
-.nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 0;
-    position: relative;
-}
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+        }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+        }
 
-.logo-img {
-    height: 32px;
-    width: auto;
-    display: block;
-    transform: none;
-    filter: none;
-}
+        .logo-img {
+            height: 40px;
+            width: auto;
+            display: block;
+            transform: scale(1.5);
+            transform-origin: left center;
+            filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.45));
+            transition: transform 0.18s ease, filter 0.18s ease;
+        }
 
-/* Desktop-Navigation */
+        .logo:hover .logo-img {
+            transform: scale(1.6);
+            filter: drop-shadow(0 0 14px rgba(59, 130, 246, 0.7));
+        }
 
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-    font-size: 14px;
-    color: var(--text-muted);
-}
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
 
-.nav-links a {
-    position: relative;
-    padding-bottom: 4px;
-    transition: color 0.2s ease;
-}
+        .nav-links a {
+            position: relative;
+            padding-bottom: 4px;
+            transition: color 0.2s ease;
+        }
 
-.nav-links a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 2px;
-    border-radius: 999px;
-    background: var(--accent);
-    transition: width 0.2s ease;
-}
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            border-radius: 999px;
+            background: var(--accent);
+            transition: width 0.2s ease;
+        }
 
-.nav-links a:hover {
-    color: #111827;
-}
+        .nav-links a:hover {
+            color: #111827;
+        }
 
-.nav-links a:hover::after {
-    width: 100%;
-}
+        .nav-links a:hover::after {
+            width: 100%;
+        }
 
-.nav-cta {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-}
+        .nav-cta {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
 
-/* Mobile-Menu-Elemente (werden wir gleich ausblenden) */
+        /* HAMBURGER BUTTON */
 
-.menu-toggle {
-    display: none;
-}
+        .nav-toggle {
+            display: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 999px;
+            border: none;
+            background: #111827;
+            color: #f9fafb;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
 
-.nav-mobile {
-    display: none;
-}
+        .nav-toggle-lines {
+            width: 18px;
+            height: 2px;
+            border-radius: 999px;
+            background: #f9fafb;
+            position: relative;
+        }
 
-/* App Store Badge nur im Header */
-header .store-badge {
-    background: linear-gradient(135deg, #2563eb, #4f46e5);
-    color: #eff6ff;
-    box-shadow: 0 14px 32px rgba(37, 99, 235, 0.45);
-    border: none;
-    padding: 7px 16px;
-    font-size: 12px;
-}
+        .nav-toggle-lines::before,
+        .nav-toggle-lines::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 18px;
+            height: 2px;
+            border-radius: 999px;
+            background: #f9fafb;
+        }
 
-header .store-badge span.icon {
-    font-size: 18px;
-}
+        .nav-toggle-lines::before { top: -5px; }
+        .nav-toggle-lines::after  { top:  5px; }
 
-header .store-badge:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 18px 40px rgba(37, 99, 235, 0.6);
-    background: linear-gradient(135deg, #1d4ed8, #4338ca);
-}
+        /* MOBILE DROPDOWN-MENU */
 
-/* --- MOBILE: nur noch Logo, kein eigener Header-Streifen --- */
+        .mobile-menu {
+            display: none;
+            background: #ffffff;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+        }
 
-@media (max-width: 960px) {
-    /* Alles außer Logo ausblenden */
-    .nav-links,
-    .nav-cta,
-    .menu-toggle,
-    .nav-mobile {
-        display: none !important;
-    }
+        .mobile-menu-inner {
+            padding: 10px 24px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
 
-    /* Header auf Handy NICHT sticky, transparent */
-    header {
-        position: static;
-        background: transparent;
-        border-bottom: none;
-        backdrop-filter: none;
-    }
+        .mobile-menu a {
+            font-size: 14px;
+            color: var(--text-main);
+            padding: 6px 0;
+        }
 
-    header .nav {
-        justify-content: center;   /* Logo zentrieren */
-        padding: 12px 0 0;        /* wenig Abstand nach oben */
-    }
+        .mobile-menu .store-badge {
+            margin-top: 6px;
+            align-self: flex-start;
+        }
 
-    .logo-img {
-        height: 26px;             /* kleineres Logo für Mobile */
-    }
-}
+        .mobile-menu.is-open {
+            display: block;
+        }
 
+        @media (min-width: 961px) {
+            .mobile-menu {
+                display: none !important;
+            }
+        }
 
         /* BUTTONS */
 
@@ -238,26 +252,30 @@ header .store-badge:hover {
 
         /* APP STORE BADGE */
 
-     /* App Store Badge nur im Header neu stylen */
-header .store-badge {
-    background: linear-gradient(135deg, #2563eb, #4f46e5);
-    color: #eff6ff;
-    box-shadow: 0 14px 32px rgba(37, 99, 235, 0.45);
-    border: none;
-    padding: 7px 16px;
-    font-size: 12px;
-}
+        .store-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: #000000;
+            color: #f9fafb;
+            font-size: 12px;
+            font-weight: 500;
+            box-shadow: 0 12px 26px rgba(15, 23, 42, 0.35);
+            transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+            white-space: nowrap;
+        }
 
-header .store-badge span.icon {
-    font-size: 18px;
-}
+        .store-badge span.icon {
+            font-size: 18px;
+        }
 
-header .store-badge:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 18px 40px rgba(37, 99, 235, 0.6);
-    background: linear-gradient(135deg, #1d4ed8, #4338ca);
-}
-
+        .store-badge:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 18px 32px rgba(15, 23, 42, 0.45);
+            background: #111827;
+        }
 
         /* HERO SECTION */
 
@@ -669,41 +687,6 @@ header .store-badge:hover {
             order: 1;
         }
 
-        @media (max-width: 960px) {
-            .showcase-row,
-            .showcase-row--reversed {
-                grid-template-columns: minmax(0, 1fr);
-                padding: 24px 22px;
-            }
-
-            .showcase-row--reversed .showcase-image,
-            .showcase-row--reversed .showcase-copy {
-                order: initial;
-            }
-
-            .showcase-copy {
-                max-width: none;
-            }
-
-            .feature-showcase-header {
-                margin-bottom: 28px;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .feature-showcase {
-                padding: 56px 0 72px;
-            }
-
-            .showcase-row {
-                margin-bottom: 24px;
-            }
-
-            .showcase-image img {
-                border-radius: 24px;
-            }
-        }
-
         /* WHY MOVO – Value-Section */
 
         .section-why {
@@ -781,24 +764,6 @@ header .store-badge:hover {
             justify-content: center;
             font-size: 18px;
             color: #f9fafb;
-            margin-bottom: 10px;
-            box-shadow: 0 10px 24px rgba(37, 99, 235, 0.5);
-        }
-
-        @media (max-width: 960px) {
-            .why-inner {
-                grid-template-columns: minmax(0, 1fr);
-            }
-
-            .why-copy {
-                max-width: none;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .why-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
         }
 
         /* GENERIC SECTIONS */
@@ -831,7 +796,7 @@ header .store-badge:hover {
             max-width: 540px;
         }
 
-        /* ARTICLES */
+        /* ARTICLES – Guides & Updates */
 
         .section-articles {
             border-top: 1px solid rgba(148, 163, 184, 0.25);
@@ -874,7 +839,6 @@ header .store-badge:hover {
 
         .article-card-link {
             display: block;
-            text-decoration: none;
             color: inherit;
         }
 
@@ -892,6 +856,12 @@ header .store-badge:hover {
             box-shadow: 0 16px 36px rgba(15, 23, 42, 0.06);
             font-size: 13px;
             transition: border-color 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease;
+        }
+
+        .article-card:hover {
+            border-color: rgba(37, 99, 235, 0.75);
+            box-shadow: 0 24px 52px rgba(15, 23, 42, 0.12);
+            transform: translateY(-3px);
         }
 
         .article-pill {
@@ -924,17 +894,6 @@ header .store-badge:hover {
             gap: 12px;
             font-size: 12px;
             color: var(--text-muted);
-        }
-
-        @media (max-width: 960px) {
-            .articles-inner {
-                grid-template-columns: minmax(0, 1fr);
-                gap: 28px;
-            }
-
-            .articles-copy {
-                max-width: none;
-            }
         }
 
         /* HOW IT WORKS */
@@ -1055,7 +1014,7 @@ header .store-badge:hover {
             color: #facc15;
         }
 
-        /* ABOUT */
+        /* ABOUT & CONTACT */
 
         .about-section {
             background: radial-gradient(circle at top left, #eef2ff 0, #f9fafb 45%, #ffffff 100%);
@@ -1129,8 +1088,6 @@ header .store-badge:hover {
             color: #4f46e5;
         }
 
-        /* CONTACT */
-
         .section-contact {
             background: linear-gradient(180deg, #f9fafb, #eef2ff);
             border-top: 1px solid rgba(148, 163, 184, 0.25);
@@ -1197,42 +1154,6 @@ header .store-badge:hover {
             margin-top: 10px;
         }
 
-        @media (max-width: 960px) {
-            .about-grid,
-            .contact-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
-
-            .hero-inner {
-                grid-template-columns: minmax(0, 1.1fr);
-                gap: 40px;
-            }
-
-            .hero-visual {
-                order: -1;
-            }
-
-            .device-card {
-                width: 100%;
-                max-width: 360px;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .hero {
-                padding: 28px 0 56px;
-            }
-
-            .hero-meta {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .meta-divider {
-                display: none;
-            }
-        }
-
         /* FOOTER */
 
         footer {
@@ -1264,24 +1185,134 @@ header .store-badge:hover {
         footer a:hover {
             color: #111827;
         }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 960px) {
+            .hero-inner {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 32px;
+            }
+
+            /* Text zuerst, dann Card */
+            .hero-visual {
+                order: 1;
+            }
+
+            .device-card {
+                width: 100%;
+                max-width: 360px;
+            }
+
+            /* Header: nur Logo + Hamburger */
+            .nav-links {
+                display: none;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            header .nav {
+                position: relative;
+                padding: 10px 16px;
+                justify-content: flex-start;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .logo {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .why-inner {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .why-copy {
+                max-width: none;
+            }
+
+            .articles-inner {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 28px;
+            }
+
+            .articles-copy {
+                max-width: none;
+            }
+
+            .how-inner {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .feature-showcase {
+                padding: 56px 0 72px;
+            }
+
+            .showcase-row {
+                grid-template-columns: minmax(0, 1fr);
+                padding: 24px 22px;
+                margin-bottom: 24px;
+            }
+
+            .showcase-row--reversed .showcase-image,
+            .showcase-row--reversed .showcase-copy {
+                order: initial;
+            }
+
+            .showcase-copy {
+                max-width: none;
+            }
+
+            .hero {
+                padding: 28px 0 56px;
+            }
+
+            .hero-meta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .meta-divider {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
 <header>
     <div class="container nav">
+        <!-- Hamburger (mobile) -->
+        <button class="nav-toggle" type="button" aria-label="Open navigation">
+            <span class="nav-toggle-lines"></span>
+        </button>
+
+        <!-- Centered logo -->
         <div class="logo">
-            <a href="#home">
-                <img src="movo.logo.png" alt="Movo - Gym Tracker & Planner" class="logo-img">
-            </a>
+            <img src="movo.logo.png" alt="Movo - Gym Tracker & Planner" class="logo-img">
         </div>
 
+        <!-- Desktop navigation -->
         <nav class="nav-links">
             <a href="#home">Home</a>
             <a href="#features">Movo App</a>
-            <a href="blog.html">Articles</a>
+            <a href="#articles">Articles</a>
             <a href="#about">About us</a>
         </nav>
 
+        <!-- Desktop CTA -->
         <div class="nav-cta">
             <a href="https://apps.apple.com/de/app/movo-gym-tracker-planner/id6754493657"
                class="store-badge">
@@ -1289,28 +1320,23 @@ header .store-badge:hover {
                 <span>Download on the App Store</span>
             </a>
         </div>
-
-        <button class="menu-toggle" aria-label="Toggle navigation">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
     </div>
 
     <!-- Mobile dropdown -->
-    <nav class="nav-mobile">
-        <div class="nav-mobile-inner">
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-inner">
             <a href="#home">Home</a>
             <a href="#features">Movo App</a>
-            <a href="blog.html">Articles</a>
+            <a href="#articles">Articles</a>
             <a href="#about">About us</a>
+
             <a href="https://apps.apple.com/de/app/movo-gym-tracker-planner/id6754493657"
                class="store-badge">
                 <span class="icon"></span>
                 <span>Download on the App Store</span>
             </a>
         </div>
-    </nav>
+    </div>
 </header>
 
 <main>
@@ -1971,21 +1997,22 @@ header .store-badge:hover {
 </footer>
 
 <script>
-    const toggle = document.querySelector('.menu-toggle');
-    const body = document.body;
+  (function () {
+    const toggle = document.querySelector('.nav-toggle');
+    const mobileMenu = document.getElementById('mobileMenu');
 
-    if (toggle) {
-        toggle.addEventListener('click', () => {
-            body.classList.toggle('nav-open');
-        });
-    }
+    if (!toggle || !mobileMenu) return;
 
-    // Menü schließen, wenn man auf einen Link klickt
-    document.querySelectorAll('.nav-mobile a').forEach(link => {
-        link.addEventListener('click', () => {
-            body.classList.remove('nav-open');
-        });
+    toggle.addEventListener('click', function () {
+      mobileMenu.classList.toggle('is-open');
     });
+
+    mobileMenu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        mobileMenu.classList.remove('is-open');
+      });
+    });
+  })();
 </script>
 </body>
 </html>
