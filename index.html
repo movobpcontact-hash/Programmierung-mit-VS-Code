@@ -1189,11 +1189,12 @@
 
         /* RESPONSIVE */
 
-        @media (max-width: 960px) {
-            .hero-inner {
-                grid-template-columns: minmax(0, 1fr);
-                gap: 32px;
-            }
+    @media (max-width: 960px) {
+    header .nav {
+        position: relative;
+        padding: 10px 16px;
+        justify-content: flex-start; /* kann so bleiben */
+    }
 
             /* Text zuerst, dann Card */
             .hero-visual {
@@ -1220,14 +1221,14 @@
                 justify-content: flex-start;
             }
 
-            .nav-toggle {
-                display: flex;
-            }
+           .nav-toggle {
+        display: flex;
+    }
 
            .logo {
-        position: static;      /* nicht mehr absolut */
-        transform: none;       /* zentrierung entfernen */
-        margin-left: 40px;     /* etwas Abstand zum Hamburger */
+        position: static;     /* nicht mehr absolut */
+        transform: none;      /* alte Zentrierung weg */
+        margin-left: auto;    /* schiebt das Logo ganz nach rechts */
     }
 
             .why-inner {
