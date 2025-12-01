@@ -126,25 +126,25 @@
         }
 
         /* HAMBURGER BUTTON */
+/* HAMBURGER BUTTON */
 
-    .nav-toggle {
+.nav-toggle {
     display: none;
     width: 36px;
     height: 36px;
     border: none;
-    background: transparent; /* kein schwarzer Kreis mehr */
+    background: transparent;   /* kein schwarzer Kreis mehr */
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    padding: 0;               /* optional: sichergehen, dass nichts aufbläht */
+    padding: 0;
 }
 
-
-      .nav-toggle-lines {
-    width: 18px;
+.nav-toggle-lines {
+    width: 20px;
     height: 2px;
     border-radius: 999px;
-    background: #000000; /* schwarz */
+    background: #000000;        /* mittlerer Strich schwarz */
     position: relative;
 }
 
@@ -153,15 +153,16 @@
     content: "";
     position: absolute;
     left: 0;
-    width: 18px;
+    width: 20px;
     height: 2px;
     border-radius: 999px;
-    background: #000000; /* ebenfalls schwarz */
+    background: #000000;        /* obere/untere Striche schwarz */
 }
 
 .nav-toggle-lines::before { top: -5px; }
 .nav-toggle-lines::after  { top:  5px; }
 
+        
 
         /* MOBILE DROPDOWN-MENU */
 
