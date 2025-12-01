@@ -125,6 +125,79 @@
             align-items: center;
         }
 
+        /* HAMBURGER BUTTON */
+
+        .nav-toggle {
+            display: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 999px;
+            border: none;
+            background: #111827;
+            color: #f9fafb;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .nav-toggle-lines {
+            width: 18px;
+            height: 2px;
+            border-radius: 999px;
+            background: #f9fafb;
+            position: relative;
+        }
+
+        .nav-toggle-lines::before,
+        .nav-toggle-lines::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 18px;
+            height: 2px;
+            border-radius: 999px;
+            background: #f9fafb;
+        }
+
+        .nav-toggle-lines::before { top: -5px; }
+        .nav-toggle-lines::after  { top:  5px; }
+
+        /* MOBILE DROPDOWN-MENU */
+
+        .mobile-menu {
+            display: none;
+            background: #ffffff;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+        }
+
+        .mobile-menu-inner {
+            padding: 10px 24px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .mobile-menu a {
+            font-size: 14px;
+            color: var(--text-main);
+            padding: 6px 0;
+        }
+
+        .mobile-menu .store-badge {
+            margin-top: 6px;
+            align-self: flex-start;
+        }
+
+        .mobile-menu.is-open {
+            display: block;
+        }
+
+        @media (min-width: 961px) {
+            .mobile-menu {
+                display: none !important;
+            }
+        }
+
         /* BUTTONS */
 
         .btn-primary {
@@ -390,26 +463,7 @@
             border: 1px solid rgba(59, 130, 246, 1);
             color: #bfdbfe;
         }
-        
-@media (max-width: 640px) {
 
-
-    header .nav {
-        justify-content: center;   /* Inhalt des Headers zentrieren */
-    }
-
-    .logo {
-        margin: 0 auto;           /* Logo mittig */
-    }
-
-    .nav-cta {
-        display: none;            /* App-Store-Button im Header ausblenden */
-    }
-}
-
-
-
-        
         .screen-list {
             display: grid;
             gap: 6px;
@@ -498,294 +552,219 @@
 
         /* FEATURE SHOWCASE WITH SCREENSHOTS – new version */
 
-.feature-showcase {
-    padding: 80px 0 96px;
-    background: radial-gradient(circle at top left, #e0ecff 0, #f9fafb 45%, #eef2ff 100%);
-    border-top: 1px solid rgba(148, 163, 184, 0.35);
-    border-bottom: 1px solid rgba(148, 163, 184, 0.35);
-}
+        .feature-showcase {
+            padding: 80px 0 96px;
+            background: radial-gradient(circle at top left, #e0ecff 0, #f9fafb 45%, #eef2ff 100%);
+            border-top: 1px solid rgba(148, 163, 184, 0.35);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+        }
 
-.feature-showcase-header {
-    margin-bottom: 40px;
-    max-width: 640px;
-}
+        .feature-showcase-header {
+            margin-bottom: 40px;
+            max-width: 640px;
+        }
 
-/* Large cards around image + text */
+        .showcase-row {
+            position: relative;
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 32px;
+            padding: 28px 32px;
+            border-radius: 32px;
+            background: rgba(255, 255, 255, 0.98);
+            border: 1px solid rgba(148, 163, 184, 0.45);
+            box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+            overflow: hidden;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+        }
 
-.showcase-row {
-    position: relative;
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-    gap: 40px;
-    align-items: center;
-    margin-bottom: 32px;
-    padding: 28px 32px;
-    border-radius: 32px;
-    background: rgba(255, 255, 255, 0.98);
-    border: 1px solid rgba(148, 163, 184, 0.45);
-    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
-    overflow: hidden;
-    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
-}
+        .showcase-row:last-of-type {
+            margin-bottom: 0;
+        }
 
-.showcase-row:last-of-type {
-    margin-bottom: 0;
-}
+        .showcase-row::before {
+            content: "";
+            position: absolute;
+            inset: -40%;
+            background: radial-gradient(circle at left, rgba(79, 70, 229, 0.7) 0, transparent 60%);
+            opacity: 0.16;
+            pointer-events: none;
+        }
 
-/* subtle glow behind the card */
+        .showcase-row--reversed::before {
+            background: radial-gradient(circle at right, rgba(37, 99, 235, 0.8) 0, transparent 60%);
+        }
 
-.showcase-row::before {
-    content: "";
-    position: absolute;
-    inset: -40%;
-    background: radial-gradient(circle at left, rgba(79, 70, 229, 0.7) 0, transparent 60%);
-    opacity: 0.16;
-    pointer-events: none;
-}
+        .showcase-row:hover {
+            transform: translateY(-4px);
+            border-color: rgba(37, 99, 235, 0.7);
+            box-shadow: 0 32px 80px rgba(15, 23, 42, 0.2);
+        }
 
-.showcase-row--reversed::before {
-    background: radial-gradient(circle at right, rgba(37, 99, 235, 0.8) 0, transparent 60%);
-}
+        .showcase-image {
+            position: relative;
+            padding: 0;
+            background: none;
+            border-radius: 28px;
+            border: none;
+            box-shadow: none;
+        }
 
-/* Hover effect */
+        .showcase-image img {
+            width: 100%;
+            display: block;
+            border-radius: 28px;
+            box-shadow: 0 18px 55px rgba(15, 23, 42, 0.35);
+        }
 
-.showcase-row:hover {
-    transform: translateY(-4px);
-    border-color: rgba(37, 99, 235, 0.7);
-    box-shadow: 0 32px 80px rgba(15, 23, 42, 0.2);
-}
+        .showcase-copy {
+            position: relative;
+            z-index: 1;
+            max-width: 380px;
+        }
 
-/* Image side */
+        .showcase-kicker {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-.showcase-image {
-    position: relative;
-    padding: 0;
-    background: none;
-    border-radius: 28px;
-    border: none;
-    box-shadow: none;
-}
+        .showcase-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #2563eb, #a855f7);
+            box-shadow: 0 0 0 3px rgba(191, 219, 254, 0.9);
+        }
 
-.showcase-image img {
-    width: 100%;
-    display: block;
-    border-radius: 28px;
-    box-shadow: 0 18px 55px rgba(15, 23, 42, 0.35);
-}
+        .showcase-copy h3 {
+            font-size: 20px;
+            letter-spacing: -0.02em;
+            margin-bottom: 6px;
+        }
 
-/* Text side */
+        .showcase-body {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
 
-.showcase-copy {
-    position: relative;
-    z-index: 1;
-    max-width: 380px;
-}
+        .showcase-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 6px;
+            font-size: 14px;
+            color: var(--text-main);
+        }
 
-.showcase-kicker {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-    color: var(--text-muted);
-    margin-bottom: 6px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
+        .showcase-list li {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
 
-.showcase-dot {
-    width: 9px;
-    height: 9px;
-    border-radius: 999px;
-    background: linear-gradient(135deg, #2563eb, #a855f7);
-    box-shadow: 0 0 0 3px rgba(191, 219, 254, 0.9);
-}
+        .showcase-list li::before {
+            content: "✓";
+            font-size: 14px;
+            margin-top: 2px;
+            color: #16a34a;
+        }
 
-.showcase-copy h3 {
-    font-size: 20px;
-    letter-spacing: -0.02em;
-    margin-bottom: 6px;
-}
+        .showcase-row--reversed .showcase-image {
+            order: 2;
+        }
 
-.showcase-body {
-    font-size: 14px;
-    color: var(--text-muted);
-    margin-bottom: 12px;
-}
+        .showcase-row--reversed .showcase-copy {
+            order: 1;
+        }
 
-.showcase-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    gap: 6px;
-    font-size: 14px;
-    color: var(--text-main);
-}
+        /* WHY MOVO – Value-Section */
 
-.showcase-list li {
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-}
+        .section-why {
+            background: radial-gradient(circle at top right, #e0ecff 0, #f9fafb 45%, #ffffff 100%);
+            border-top: 1px solid rgba(148, 163, 184, 0.25);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+        }
 
-.showcase-list li::before {
-    content: "✓";
-    font-size: 14px;
-    margin-top: 2px;
-    color: #16a34a;
-}
+        .why-inner {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.1fr);
+            gap: 40px;
+            align-items: flex-start;
+        }
 
-/* alternating rows (image/text swapped) */
+        .why-copy {
+            max-width: 420px;
+        }
 
-.showcase-row--reversed .showcase-image {
-    order: 2;
-}
+        .why-badges {
+            margin-top: 18px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
 
-.showcase-row--reversed .showcase-copy {
-    order: 1;
-}
+        .why-badge {
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            background: #f9fafb;
+            color: #4b5563;
+        }
 
-/* Responsive */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
 
-@media (max-width: 960px) {
-    .showcase-row,
-    .showcase-row--reversed {
-        grid-template-columns: minmax(0, 1fr);
-        padding: 24px 22px;
-    }
+        .why-card {
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 16px 16px 14px;
+            border: 1px solid rgba(148, 163, 184, 0.55);
+            box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+            font-size: 13px;
+            transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+        }
 
-    .showcase-row--reversed .showcase-image,
-    .showcase-row--reversed .showcase-copy {
-        order: initial;
-    }
+        .why-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 22px 52px rgba(15, 23, 42, 0.14);
+            border-color: rgba(37, 99, 235, 0.7);
+        }
 
-    .showcase-copy {
-        max-width: none;
-    }
+        .why-card h3 {
+            font-size: 15px;
+            margin-bottom: 6px;
+        }
 
-    .feature-showcase-header {
-        margin-bottom: 28px;
-    }
-}
+        .why-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
 
-@media (max-width: 640px) {
-    .feature-showcase {
-        padding: 56px 0 72px;
-    }
-
-    .showcase-row {
-        margin-bottom: 24px;
-    }
-
-    .showcase-image img {
-        border-radius: 24px;
-    }
-}
-
-/* WHY MOVO – Value-Section */
-
-.section-why {
-    background: radial-gradient(circle at top right, #e0ecff 0, #f9fafb 45%, #ffffff 100%);
-    border-top: 1px solid rgba(148, 163, 184, 0.25);
-    border-bottom: 1px solid rgba(148, 163, 184, 0.25);
-}
-
-.why-inner {
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.1fr);
-    gap: 40px;
-    align-items: flex-start;
-}
-
-.why-copy {
-    max-width: 420px;
-}
-
-.why-badges {
-    margin-top: 18px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.why-badge {
-    font-size: 11px;
-    padding: 4px 10px;
-    border-radius: 999px;
-    border: 1px solid rgba(148, 163, 184, 0.7);
-    background: #f9fafb;
-    color: #4b5563;
-}
-
-/* Cards right */
-
-.why-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
-}
-
-.why-card {
-    background: #ffffff;
-    border-radius: 22px;
-    padding: 16px 16px 14px;
-    border: 1px solid rgba(148, 163, 184, 0.55);
-    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
-    font-size: 13px;
-    transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
-}
-
-.why-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 22px 52px rgba(15, 23, 42, 0.14);
-    border-color: rgba(37, 99, 235, 0.7);
-}
-
-.why-card h3 {
-    font-size: 15px;
-    margin-bottom: 6px;
-}
-
-.why-card p {
-    font-size: 13px;
-    color: var(--text-muted);
-}
-
-/* Icon circle */
-
-.why-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: 999px;
-    background: linear-gradient(135deg, #2563eb, #a855f7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    color: #f9fafb;
-    margin-bottom: 10px;
-    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.5);
-}
-
-/* Responsive */
-
-@media (max-width: 960px) {
-    .why-inner {
-        grid-template-columns: minmax(0, 1fr);
-    }
-
-    .why-copy {
-        max-width: none;
-    }
-}
-
-@media (max-width: 640px) {
-    .why-grid {
-        grid-template-columns: minmax(0, 1fr);
-    }
-}
-
-
+        .why-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #2563eb, #a855f7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #f9fafb;
+        }
 
         /* GENERIC SECTIONS */
 
@@ -817,125 +796,107 @@
             max-width: 540px;
         }
 
+        /* ARTICLES – Guides & Updates */
 
-      /* ARTICLES – Guides & Updates */
+        .section-articles {
+            border-top: 1px solid rgba(148, 163, 184, 0.25);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+            background: linear-gradient(180deg, #f9fafb, #ffffff);
+        }
 
-.section-articles {
-    border-top: 1px solid rgba(148, 163, 184, 0.25);
-    border-bottom: 1px solid rgba(148, 163, 184, 0.25);
-    background: linear-gradient(180deg, #f9fafb, #ffffff);
-}
+        .articles-inner {
+            display: grid;
+            grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.2fr);
+            gap: 40px;
+            align-items: flex-start;
+        }
 
-.articles-inner {
-    display: grid;
-    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.2fr);
-    gap: 40px;
-    align-items: flex-start;
-}
+        .articles-copy {
+            max-width: 420px;
+        }
 
-.articles-copy {
-    max-width: 420px;
-}
+        .articles-note {
+            margin-top: 18px;
+            font-size: 13px;
+            color: var(--text-muted);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-.articles-note {
-    margin-top: 18px;
-    font-size: 13px;
-    color: var(--text-muted);
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
+        .articles-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 30% 20%, #bfdbfe 0, #60a5fa 40%, #2563eb 100%);
+            box-shadow: 0 0 0 3px rgba(191, 219, 254, 0.9);
+        }
 
-.articles-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 999px;
-    background: radial-gradient(circle at 30% 20%, #bfdbfe 0, #60a5fa 40%, #2563eb 100%);
-    box-shadow: 0 0 0 3px rgba(191, 219, 254, 0.9);
-}
+        .articles-list {
+            display: grid;
+            gap: 16px;
+        }
 
-/* right column: cards */
+        .article-card-link {
+            display: block;
+            color: inherit;
+        }
 
-.articles-list {
-    display: grid;
-    gap: 16px;
-}
+        .article-card-link:hover .article-card {
+            border-color: rgba(37, 99, 235, 0.75);
+            box-shadow: 0 24px 52px rgba(15, 23, 42, 0.12);
+            transform: translateY(-3px);
+        }
 
-.article-card-link {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-}
+        .article-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 16px 18px 14px;
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            box-shadow: 0 16px 36px rgba(15, 23, 42, 0.06);
+            font-size: 13px;
+            transition: border-color 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease;
+        }
 
-.article-card-link:hover .article-card {
-    border-color: rgba(37, 99, 235, 0.75);
-    box-shadow: 0 24px 52px rgba(15, 23, 42, 0.12);
-    transform: translateY(-3px);
-}
+        .article-card:hover {
+            border-color: rgba(37, 99, 235, 0.75);
+            box-shadow: 0 24px 52px rgba(15, 23, 42, 0.12);
+            transform: translateY(-3px);
+        }
 
-.article-card {
-    background: #ffffff;
-    border-radius: 20px;
-    padding: 16px 18px 14px;
-    border: 1px solid rgba(148, 163, 184, 0.6);
-    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.06);
-    font-size: 13px;
-    transition: border-color 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease;
-}
+        .article-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 3px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            background: #f9fafb;
+        }
 
-.article-card:hover {
-    border-color: rgba(37, 99, 235, 0.75);
-    box-shadow: 0 24px 52px rgba(15, 23, 42, 0.12);
-    transform: translateY(-3px);
-}
+        .article-card h3 {
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
 
-.article-pill {
-    display: inline-flex;
-    align-items: center;
-    padding: 3px 10px;
-    border-radius: 999px;
-    border: 1px solid rgba(148, 163, 184, 0.7);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--text-muted);
-    margin-bottom: 8px;
-    background: #f9fafb;
-}
+        .article-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
 
-.article-card h3 {
-    font-size: 15px;
-    margin-bottom: 4px;
-}
+        .article-meta {
+            display: flex;
+            gap: 12px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
 
-.article-card p {
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-bottom: 10px;
-}
-
-.article-meta {
-    display: flex;
-    gap: 12px;
-    font-size: 12px;
-    color: var(--text-muted);
-}
-
-/* Responsive */
-
-@media (max-width: 960px) {
-    .articles-inner {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 28px;
-    }
-
-    .articles-copy {
-        max-width: none;
-    }
-}
-  
-
-        /* HOW IT WORKS – new layout */
+        /* HOW IT WORKS */
 
         .section-how {
             padding: 64px 0 72px;
@@ -989,184 +950,31 @@
             margin-bottom: 4px;
         }
 
-        /* Reviews */
+        /* REVIEWS */
 
-      .reviews-grid {
-    display: flex;
-    gap: 20px;
-    margin-top: 24px;
-    padding-bottom: 8px;          /* some room for scrollbar / shadow */
-    overflow-x: auto;             /* horizontal scroll */
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;/* snaps to cards */
-    -webkit-overflow-scrolling: touch;
-}
+        .reviews-grid {
+            display: flex;
+            gap: 20px;
+            margin-top: 24px;
+            padding-bottom: 8px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
 
-/* ABOUT – story + principles */
-
-.about-section {
-    background: radial-gradient(circle at top left, #eef2ff 0, #f9fafb 45%, #ffffff 100%);
-    border-top: 1px solid rgba(148, 163, 184, 0.25);
-}
-
-.about-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
-    gap: 24px;
-    align-items: flex-start;
-    margin-top: 18px;
-}
-
-.about-card {
-    background: var(--card);
-    border-radius: var(--radius-lg);
-    padding: 18px 20px;
-    border: 1px solid var(--border-subtle);
-    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
-    font-size: 14px;
-}
-
-.about-card + .about-card {
-    margin-top: 14px;
-}
-
-.about-intro {
-    margin-bottom: 10px;
-    color: var(--text-muted);
-}
-
-.about-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    color: var(--text-muted);
-    font-size: 14px;
-}
-
-.about-list li + li {
-    margin-top: 4px;
-}
-
-.about-list--check li {
-    display: flex;
-    gap: 8px;
-    align-items: flex-start;
-}
-
-.about-list--check li::before {
-    content: "✓";
-    font-size: 13px;
-    margin-top: 2px;
-    color: #22c55e;
-}
-
-.pill-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 10px;
-}
-
-.about-pill {
-    font-size: 11px;
-    padding: 4px 10px;
-    border-radius: 999px;
-    background: #eef2ff;
-    border: 1px solid rgba(129, 140, 248, 0.5);
-    color: #4f46e5;
-}
-
-/* CONTACT – two-column cards */
-
-.section-contact {
-    background: linear-gradient(180deg, #f9fafb, #eef2ff);
-    border-top: 1px solid rgba(148, 163, 184, 0.25);
-}
-
-.contact-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-    gap: 24px;
-    margin-top: 18px;
-}
-
-.contact-card {
-    background: var(--card);
-    border-radius: var(--radius-lg);
-    padding: 18px 20px;
-    border: 1px solid var(--border-subtle);
-    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
-    font-size: 14px;
-}
-
-.contact-title {
-    font-size: 16px;
-    letter-spacing: -0.01em;
-    margin-bottom: 6px;
-}
-
-.contact-mail-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin: 10px 0 12px;
-    padding: 6px 12px;
-    border-radius: 999px;
-    background: rgba(37, 99, 235, 0.06);
-    border: 1px solid rgba(37, 99, 235, 0.35);
-    font-size: 13px;
-}
-
-.contact-mail-badge span.icon {
-    font-size: 15px;
-}
-
-.contact-mail-badge a {
-    color: var(--accent);
-    text-decoration: underline;
-}
-
-.contact-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    color: var(--text-muted);
-    font-size: 13px;
-}
-
-.contact-list li + li {
-    margin-top: 4px;
-}
-
-.contact-small {
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-top: 10px;
-}
-
-/* Responsive layout for About + Contact */
-
-@media (max-width: 960px) {
-    .about-grid,
-    .contact-grid {
-        grid-template-columns: minmax(0, 1fr);
-    }
-}
-
-    
-.review-card {
-    background: var(--card);
-    border-radius: 20px;
-    padding: 18px;
-    border: 1px solid rgba(148, 163, 184, 0.6);
-    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
-    font-size: 13px;
-
-    min-width: 320px;   /* card width */
-    max-width: 360px;
-    flex: 0 0 auto;     /* don't shrink or grow */
-    scroll-snap-align: start;
-}
+        .review-card {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 18px;
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+            font-size: 13px;
+            min-width: 320px;
+            max-width: 360px;
+            flex: 0 0 auto;
+            scroll-snap-align: start;
+        }
 
         .review-stars {
             color: #fbbf24;
@@ -1179,8 +987,6 @@
             font-size: 12px;
             color: var(--text-muted);
         }
-
-        /* Dark review band for variety */
 
         .section-dark {
             padding: 72px 0 80px;
@@ -1208,20 +1014,144 @@
             color: #facc15;
         }
 
-        /* Contact box (legacy) */
+        /* ABOUT & CONTACT */
 
-        .contact-box {
-            margin-top: 24px;
-            padding: 18px;
-            border-radius: 18px;
-            border: 1px solid rgba(148, 163, 184, 0.7);
+        .about-section {
+            background: radial-gradient(circle at top left, #eef2ff 0, #f9fafb 45%, #ffffff 100%);
+            border-top: 1px solid rgba(148, 163, 184, 0.25);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+            gap: 24px;
+            align-items: flex-start;
+            margin-top: 18px;
+        }
+
+        .about-card {
             background: var(--card);
+            border-radius: var(--radius-lg);
+            padding: 18px 20px;
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
             font-size: 14px;
         }
 
-        .contact-box a {
-            color: #2563eb;
+        .about-card + .about-card {
+            margin-top: 14px;
+        }
+
+        .about-intro {
+            margin-bottom: 10px;
+            color: var(--text-muted);
+        }
+
+        .about-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .about-list li + li {
+            margin-top: 4px;
+        }
+
+        .about-list--check li {
+            display: flex;
+            gap: 8px;
+            align-items: flex-start;
+        }
+
+        .about-list--check li::before {
+            content: "✓";
+            font-size: 13px;
+            margin-top: 2px;
+            color: #22c55e;
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+
+        .about-pill {
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: #eef2ff;
+            border: 1px solid rgba(129, 140, 248, 0.5);
+            color: #4f46e5;
+        }
+
+        .section-contact {
+            background: linear-gradient(180deg, #f9fafb, #eef2ff);
+            border-top: 1px solid rgba(148, 163, 184, 0.25);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+            gap: 24px;
+            margin-top: 18px;
+        }
+
+        .contact-card {
+            background: var(--card);
+            border-radius: var(--radius-lg);
+            padding: 18px 20px;
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
+            font-size: 14px;
+        }
+
+        .contact-title {
+            font-size: 16px;
+            letter-spacing: -0.01em;
+            margin-bottom: 6px;
+        }
+
+        .contact-mail-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 10px 0 12px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(37, 99, 235, 0.06);
+            border: 1px solid rgba(37, 99, 235, 0.35);
+            font-size: 13px;
+        }
+
+        .contact-mail-badge span.icon {
+            font-size: 15px;
+        }
+
+        .contact-mail-badge a {
+            color: var(--accent);
             text-decoration: underline;
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        .contact-list li + li {
+            margin-top: 4px;
+        }
+
+        .contact-small {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 10px;
         }
 
         /* FOOTER */
@@ -1260,12 +1190,13 @@
 
         @media (max-width: 960px) {
             .hero-inner {
-                grid-template-columns: minmax(0, 1.1fr);
-                gap: 40px;
+                grid-template-columns: minmax(0, 1fr);
+                gap: 32px;
             }
 
+            /* Text zuerst, dann Card */
             .hero-visual {
-                order: -1;
+                order: 1;
             }
 
             .device-card {
@@ -1273,24 +1204,78 @@
                 max-width: 360px;
             }
 
+            /* Header: nur Logo + Hamburger */
             .nav-links {
                 display: none;
             }
 
-            .features-grid {
+            .nav-cta {
+                display: none;
+            }
+
+            header .nav {
+                position: relative;
+                padding: 10px 16px;
+                justify-content: flex-start;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .logo {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .why-inner {
                 grid-template-columns: minmax(0, 1fr);
             }
 
-            .reviews-grid {
+            .why-copy {
+                max-width: none;
+            }
+
+            .articles-inner {
                 grid-template-columns: minmax(0, 1fr);
+                gap: 28px;
+            }
+
+            .articles-copy {
+                max-width: none;
             }
 
             .how-inner {
                 grid-template-columns: minmax(0, 1fr);
             }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
         }
 
         @media (max-width: 640px) {
+            .feature-showcase {
+                padding: 56px 0 72px;
+            }
+
+            .showcase-row {
+                grid-template-columns: minmax(0, 1fr);
+                padding: 24px 22px;
+                margin-bottom: 24px;
+            }
+
+            .showcase-row--reversed .showcase-image,
+            .showcase-row--reversed .showcase-copy {
+                order: initial;
+            }
+
+            .showcase-copy {
+                max-width: none;
+            }
+
             .hero {
                 padding: 28px 0 56px;
             }
@@ -1303,28 +1288,48 @@
             .meta-divider {
                 display: none;
             }
-
-            .features-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
         }
     </style>
-
 </head>
 <body>
 <header>
     <div class="container nav">
+        <!-- Hamburger (mobile) -->
+        <button class="nav-toggle" type="button" aria-label="Open navigation">
+            <span class="nav-toggle-lines"></span>
+        </button>
+
+        <!-- Centered logo -->
         <div class="logo">
             <img src="movo.logo.png" alt="Movo - Gym Tracker & Planner" class="logo-img">
         </div>
+
+        <!-- Desktop navigation -->
         <nav class="nav-links">
             <a href="#home">Home</a>
             <a href="#features">Movo App</a>
-            <a href="blog.html">Articles</a>
+            <a href="#articles">Articles</a>
             <a href="#about">About us</a>
         </nav>
+
+        <!-- Desktop CTA -->
         <div class="nav-cta">
+            <a href="https://apps.apple.com/de/app/movo-gym-tracker-planner/id6754493657"
+               class="store-badge">
+                <span class="icon"></span>
+                <span>Download on the App Store</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Mobile dropdown -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-inner">
+            <a href="#home">Home</a>
+            <a href="#features">Movo App</a>
+            <a href="#articles">Articles</a>
+            <a href="#about">About us</a>
+
             <a href="https://apps.apple.com/de/app/movo-gym-tracker-planner/id6754493657"
                class="store-badge">
                 <span class="icon"></span>
@@ -1435,144 +1440,137 @@
     </section>
 
     <!-- APP SHOWCASE -->
-<section class="feature-showcase" id="features">
-    <div class="container">
-        <div class="section-header-wide feature-showcase-header">
-            <div class="section-kicker">Movo App</div>
-            <h2 class="section-title">See Movo in action.</h2>
-            <p class="section-text">
-                Real screens from the app – this is what it looks like when you log with Movo,
-                set challenges and track your progress.
-            </p>
-        </div>
+    <section class="feature-showcase" id="features">
+        <div class="container">
+            <div class="section-header-wide feature-showcase-header">
+                <div class="section-kicker">Movo App</div>
+                <h2 class="section-title">See Movo in action.</h2>
+                <p class="section-text">
+                    Real screens from the app – this is what it looks like when you log with Movo,
+                    set challenges and track your progress.
+                </p>
+            </div>
 
-        <!-- 1 · Easy Logging & Templates -->
-        <div class="showcase-row">
-            <div class="showcase-image">
-                <img src="movo-easy-logging.png"
-                     alt="Easy logging and templates in Movo">
+            <div class="showcase-row">
+                <div class="showcase-image">
+                    <img src="movo-easy-logging.png"
+                         alt="Easy logging and templates in Movo">
+                </div>
+                <div class="showcase-copy">
+                    <p class="showcase-kicker">
+                        <span class="showcase-dot"></span>
+                        Feature 01 · Logging
+                    </p>
+                    <h3>Easy Logging & Templates</h3>
+                    <p class="showcase-body">
+                        Start your workout in seconds: pick a template, tweak it and go –
+                        without having to plan from scratch every time.
+                    </p>
+                    <ul class="showcase-list">
+                        <li>Push/Pull/Leg, Upper/Lower or fully custom templates</li>
+                        <li>Adjust weight &amp; reps right on the set</li>
+                        <li>Clean, calm interface that works in a busy gym</li>
+                    </ul>
+                </div>
             </div>
-            <div class="showcase-copy">
-                <p class="showcase-kicker">
-                    <span class="showcase-dot"></span>
-                    Feature 01 · Logging
-                </p>
-                <h3>Easy Logging & Templates</h3>
-                <p class="showcase-body">
-                    Start your workout in seconds: pick a template, tweak it and go –
-                    without having to plan from scratch every time.
-                </p>
-                <ul class="showcase-list">
-                    <li>Push/Pull/Leg, Upper/Lower or fully custom templates</li>
-                    <li>Adjust weight &amp; reps right on the set</li>
-                    <li>Clean, calm interface that works in a busy gym</li>
-                </ul>
-            </div>
-        </div>
 
-        <!-- 2 · Challenges & Motivation -->
-        <div class="showcase-row showcase-row--reversed">
-            <div class="showcase-image">
-                <img src="movo-challenges.png"
-                     alt="Challenges and training goals in Movo">
+            <div class="showcase-row showcase-row--reversed">
+                <div class="showcase-image">
+                    <img src="movo-challenges.png"
+                         alt="Challenges and training goals in Movo">
+                </div>
+                <div class="showcase-copy">
+                    <p class="showcase-kicker">
+                        <span class="showcase-dot"></span>
+                        Feature 02 · Motivation
+                    </p>
+                    <h3>Stay motivated with challenges</h3>
+                    <p class="showcase-body">
+                        Set clear goals like “5 workouts per week”
+                        or “12,000 steps per day” and see instantly
+                        how close you are.
+                    </p>
+                    <ul class="showcase-list">
+                        <li>Weekly training targets for more structure</li>
+                        <li>Step challenges for more movement in everyday life</li>
+                        <li>Training units like “Core Crusher” for an extra boost</li>
+                    </ul>
+                </div>
             </div>
-            <div class="showcase-copy">
-                <p class="showcase-kicker">
-                    <span class="showcase-dot"></span>
-                    Feature 02 · Motivation
-                </p>
-                <h3>Stay motivated with challenges</h3>
-                <p class="showcase-body">
-                    Set clear goals like “5 workouts per week”
-                    or “12,000 steps per day” and see instantly
-                    how close you are.
-                </p>
-                <ul class="showcase-list">
-                    <li>Weekly training targets for more structure</li>
-                    <li>Step challenges for more movement in everyday life</li>
-                    <li>Training units like “Core Crusher” for an extra boost</li>
-                </ul>
-            </div>
-        </div>
 
-        <!-- 3 · Smart Rest Timer -->
-        <div class="showcase-row">
-            <div class="showcase-image">
-                <img src="movo-rest-timer.png"
-                     alt="Smart Rest Timer in Movo">
+            <div class="showcase-row">
+                <div class="showcase-image">
+                    <img src="movo-rest-timer.png"
+                         alt="Smart Rest Timer in Movo">
+                </div>
+                <div class="showcase-copy">
+                    <p class="showcase-kicker">
+                        <span class="showcase-dot"></span>
+                        Feature 03 · Focus
+                    </p>
+                    <h3>Smart Rest Timer</h3>
+                    <p class="showcase-body">
+                        Rest periods that take care of themselves: start the timer,
+                        log your weight, stay focused – Movo tells you
+                        when to go again.
+                    </p>
+                    <ul class="showcase-list">
+                        <li>Start rests with a single tap</li>
+                        <li>Preset times for your favorite intervals</li>
+                        <li>Optional Live Activity on your lock screen</li>
+                    </ul>
+                </div>
             </div>
-            <div class="showcase-copy">
-                <p class="showcase-kicker">
-                    <span class="showcase-dot"></span>
-                    Feature 03 · Focus
-                </p>
-                <h3>Smart Rest Timer</h3>
-                <p class="showcase-body">
-                    Rest periods that take care of themselves: start the timer,
-                    log your weight, stay focused – Movo tells you
-                    when to go again.
-                </p>
-                <ul class="showcase-list">
-                    <li>Start rests with a single tap</li>
-                    <li>Preset times for your favorite intervals</li>
-                    <li>Optional Live Activity on your lock screen</li>
-                </ul>
-            </div>
-        </div>
 
-        <!-- 4 · Widgets & Consistency -->
-        <div class="showcase-row showcase-row--reversed">
-            <div class="showcase-image">
-                <img src="movo-widgets.png"
-                     alt="Movo widgets and step integration">
+            <div class="showcase-row showcase-row--reversed">
+                <div class="showcase-image">
+                    <img src="movo-widgets.png"
+                         alt="Movo widgets and step integration">
+                </div>
+                <div class="showcase-copy">
+                    <p class="showcase-kicker">
+                        <span class="showcase-dot"></span>
+                        Feature 04 · Daily life
+                    </p>
+                    <h3>Stay on track – even outside the gym</h3>
+                    <p class="showcase-body">
+                        Widgets and Apple Health data make your goals
+                        visible – right on your home screen.
+                    </p>
+                    <ul class="showcase-list">
+                        <li>Keep steps &amp; workouts per week in view</li>
+                        <li>Track weekly goals like “3 workouts/week”</li>
+                        <li>Motivating overview instead of endless stat tables</li>
+                    </ul>
+                </div>
             </div>
-            <div class="showcase-copy">
-                <p class="showcase-kicker">
-                    <span class="showcase-dot"></span>
-                    Feature 04 · Daily life
-                </p>
-                <h3>Stay on track – even outside the gym</h3>
-                <p class="showcase-body">
-                    Widgets and Apple Health data make your goals
-                    visible – right on your home screen.
-                </p>
-                <ul class="showcase-list">
-                    <li>Keep steps &amp; workouts per week in view</li>
-                    <li>Track weekly goals like “3 workouts/week”</li>
-                    <li>Motivating overview instead of endless stat tables</li>
-                </ul>
-            </div>
-        </div>
 
-        <!-- 5 · Training History -->
-        <div class="showcase-row">
-            <div class="showcase-image">
-                <img src="movo-history.png"
-                     alt="Training history in Movo">
-            </div>
-            <div class="showcase-copy">
-                <p class="showcase-kicker">
-                    <span class="showcase-dot"></span>
-                    Feature 05 · Overview
-                </p>
-                <h3>Your training history</h3>
-                <p class="showcase-body">
-                    Review any session again – perfect for spotting progress
-                    and adjusting your plan.
-                </p>
-                <ul class="showcase-list">
-                    <li>All workouts sorted by date, chronologically</li>
-                    <li>At a glance: volume, exercises &amp; notes</li>
-                    <li>Helps you spot plateaus and change things deliberately</li>
-                </ul>
+            <div class="showcase-row">
+                <div class="showcase-image">
+                    <img src="movo-history.png"
+                         alt="Training history in Movo">
+                </div>
+                <div class="showcase-copy">
+                    <p class="showcase-kicker">
+                        <span class="showcase-dot"></span>
+                        Feature 05 · Overview
+                    </p>
+                    <h3>Your training history</h3>
+                    <p class="showcase-body">
+                        Review any session again – perfect for spotting progress
+                        and adjusting your plan.
+                    </p>
+                    <ul class="showcase-list">
+                        <li>All workouts sorted by date, chronologically</li>
+                        <li>At a glance: volume, exercises &amp; notes</li>
+                        <li>Helps you spot plateaus and change things deliberately</li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-
-
-    <!-- HOW IT WORKS – new layout -->
+    <!-- HOW IT WORKS -->
     <section class="section-how" id="how-it-works">
         <div class="container how-inner">
             <div>
@@ -1618,134 +1616,131 @@
         </div>
     </section>
 
-  <!-- WHY MOVO – Value-Section -->
-<section class="section section-why" id="why">
-    <div class="container why-inner">
-        <div class="why-copy">
-            <div class="section-kicker">Why Movo</div>
-            <h2 class="section-title">Built for serious training – not dopamine scrolling.</h2>
-            <p class="section-text">
-                Movo is intentionally lean: no social features, no ads,
-                no unnecessary clutter. Only what helps you log quickly in the gym
-                and see your progress clearly.
-            </p>
+    <!-- WHY MOVO -->
+    <section class="section section-why" id="why">
+        <div class="container why-inner">
+            <div class="why-copy">
+                <div class="section-kicker">Why Movo</div>
+                <h2 class="section-title">Built for serious training – not dopamine scrolling.</h2>
+                <p class="section-text">
+                    Movo is intentionally lean: no social features, no ads,
+                    no unnecessary clutter. Only what helps you log quickly in the gym
+                    and see your progress clearly.
+                </p>
 
-            <div class="why-badges">
-                <span class="why-badge">No social feed</span>
-                <span class="why-badge">No ads</span>
-                <span class="why-badge">Strength training focus</span>
-                <span class="why-badge">Privacy-friendly</span>
+                <div class="why-badges">
+                    <span class="why-badge">No social feed</span>
+                    <span class="why-badge">No ads</span>
+                    <span class="why-badge">Strength training focus</span>
+                    <span class="why-badge">Privacy-friendly</span>
+                </div>
+            </div>
+
+            <div class="why-grid">
+                <article class="why-card">
+                    <div class="why-icon">⚡</div>
+                    <h3>Fast in the gym</h3>
+                    <p>
+                        Logging takes seconds. Movo is built so you can put your phone
+                        away after every set instead of tapping through menus.
+                    </p>
+                </article>
+
+                <article class="why-card">
+                    <div class="why-icon">🎯</div>
+                    <h3>No distraction feed</h3>
+                    <p>
+                        No explore tab, no comments, no endless scrolling.
+                        You open Movo – and you’re immediately in your workout.
+                    </p>
+                </article>
+
+                <article class="why-card">
+                    <div class="why-icon">📊</div>
+                    <h3>Stats that actually make sense</h3>
+                    <p>
+                        Volume, time, PRs and trends – without analytics overload.
+                        You see exactly whether you actually did more this week.
+                    </p>
+                </article>
+
+                <article class="why-card">
+                    <div class="why-icon">🔒</div>
+                    <h3>Designed around your data</h3>
+                    <p>
+                        Focused on iOS &amp; Apple Health, no third-party trackers.
+                        Your training data belongs to you – full stop.
+                    </p>
+                </article>
             </div>
         </div>
+    </section>
 
-        <div class="why-grid">
-            <article class="why-card">
-                <div class="why-icon">⚡</div>
-                <h3>Fast in the gym</h3>
-                <p>
-                    Logging takes seconds. Movo is built so you can put your phone
-                    away after every set instead of tapping through menus.
+    <!-- ARTICLES -->
+    <section class="section section-articles" id="articles">
+        <div class="container articles-inner">
+            <div class="articles-copy">
+                <div class="section-kicker">Articles</div>
+                <h2 class="section-title">Training guides &amp; app updates</h2>
+                <p class="section-text">
+                    Short, practical guides on progression, routines and
+                    how to use Movo in everyday life – without having to read
+                    through endless blog posts.
                 </p>
-            </article>
 
-            <article class="why-card">
-                <div class="why-icon">🎯</div>
-                <h3>No distraction feed</h3>
-                <p>
-                    No explore tab, no comments, no endless scrolling.
-                    You open Movo – and you’re immediately in your workout.
-                </p>
-            </article>
+                <div class="articles-note">
+                    <span class="articles-dot"></span>
+                    New articles will be added over time.
+                </div>
+            </div>
 
-            <article class="why-card">
-                <div class="why-icon">📊</div>
-                <h3>Stats that actually make sense</h3>
-                <p>
-                    Volume, time, PRs and trends – without analytics overload.
-                    You see exactly whether you actually did more this week.
-                </p>
-            </article>
+            <div class="articles-list">
+                <a href="blog.html#progressive-overload" class="article-card-link">
+                    <article class="article-card">
+                        <div class="article-pill">Training guide</div>
+                        <h3>Progressive overload in practice</h3>
+                        <p>
+                            How to combine volume, intensity and RPE in a useful way – and track them in Movo
+                            so your sessions become clearer, not more complicated.
+                        </p>
+                        <div class="article-meta">
+                            <span>🏋️ Strength</span>
+                        </div>
+                    </article>
+                </a>
 
-            <article class="why-card">
-                <div class="why-icon">🔒</div>
-                <h3>Designed around your data</h3>
-                <p>
-                    Focused on iOS &amp; Apple Health, no third-party trackers.
-                    Your training data belongs to you – full stop.
-                </p>
-            </article>
-        </div>
-    </div>
-</section>
+                <a href="blog.html#routines" class="article-card-link">
+                    <article class="article-card">
+                        <div class="article-pill">Programs &amp; routines</div>
+                        <h3>Building routines that stick</h3>
+                        <p>
+                            Simple templates for Push/Pull/Leg, Upper/Lower and Full Body – including
+                            ideas for different training levels and full weekly plans.
+                        </p>
+                        <div class="article-meta">
+                            <span>📅 Programming</span>
+                        </div>
+                    </article>
+                </a>
 
-
-  <!-- ARTICLES -->
-<section class="section section-articles" id="articles">
-    <div class="container articles-inner">
-        <!-- Left side: intro -->
-        <div class="articles-copy">
-            <div class="section-kicker">Articles</div>
-            <h2 class="section-title">Training guides &amp; app updates</h2>
-            <p class="section-text">
-                Short, practical guides on progression, routines and
-                how to use Movo in everyday life – without having to read
-                through endless blog posts.
-            </p>
-
-            <div class="articles-note">
-                <span class="articles-dot"></span>
-                New articles will be added over time.
+                <a href="blog.html#widgets" class="article-card-link">
+                    <article class="article-card">
+                        <div class="article-pill">App tips</div>
+                        <h3>Using widgets &amp; Health data</h3>
+                        <p>
+                            How to use steps, training goals and widgets to keep yourself
+                            accountable outside the gym – straight from your home screen.
+                        </p>
+                        <div class="article-meta">
+                            <span>📱 App &amp; iOS</span>
+                        </div>
+                    </article>
+                </a>
             </div>
         </div>
+    </section>
 
-     <div class="articles-list">
-    <a href="blog.html#progressive-overload" class="article-card-link">
-        <article class="article-card">
-            <div class="article-pill">Training guide</div>
-            <h3>Progressive overload in practice</h3>
-            <p>
-                How to combine volume, intensity and RPE in a useful way – and track them in Movo
-                so your sessions become clearer, not more complicated.
-            </p>
-            <div class="article-meta">
-                <span>🏋️ Strength</span>
-            </div>
-        </article>
-    </a>
-
-    <a href="blog.html#routines" class="article-card-link">
-        <article class="article-card">
-            <div class="article-pill">Programs &amp; routines</div>
-            <h3>Building routines that stick</h3>
-            <p>
-                Simple templates for Push/Pull/Leg, Upper/Lower and Full Body – including
-                ideas for different training levels and full weekly plans.
-            </p>
-            <div class="article-meta">
-                <span>📅 Programming</span>
-            </div>
-        </article>
-    </a>
-
-    <a href="blog.html#widgets" class="article-card-link">
-        <article class="article-card">
-            <div class="article-pill">App tips</div>
-            <h3>Using widgets &amp; Health data</h3>
-            <p>
-                How to use steps, training goals and widgets to keep yourself
-                accountable outside the gym – straight from your home screen.
-            </p>
-            <div class="article-meta">
-                <span>📱 App &amp; iOS</span>
-            </div>
-        </article>
-    </a>
-</div>
-
-</section>
-
-
-    <!-- REVIEWS (dark band) -->
+    <!-- REVIEWS -->
     <section class="section section-dark" id="reviews">
         <div class="container">
             <div class="section-header-wide">
@@ -1804,58 +1799,58 @@
                 </article>
 
                 <article class="review-card">
-    <div class="review-stars">★★★★★</div>
-    <p>
-        “I finally stopped using spreadsheets. Templates and history in Movo
-        make it so much easier to see how my training actually evolves.”
-    </p>
-    <p class="review-author">— Alex K.</p>
-</article>
+                    <div class="review-stars">★★★★★</div>
+                    <p>
+                        “I finally stopped using spreadsheets. Templates and history in Movo
+                        make it so much easier to see how my training actually evolves.”
+                    </p>
+                    <p class="review-author">— Alex K.</p>
+                </article>
 
-<article class="review-card">
-    <div class="review-stars">★★★★★</div>
-    <p>
-        “The rest timer with Live Activity is brilliant. I don’t stare at the
-        clock anymore – I just lift and wait for my phone to tell me it’s time.”
-    </p>
-    <p class="review-author">— Julia S.</p>
-</article>
+                <article class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p>
+                        “The rest timer with Live Activity is brilliant. I don’t stare at the
+                        clock anymore – I just lift and wait for my phone to tell me it’s time.”
+                    </p>
+                    <p class="review-author">— Julia S.</p>
+                </article>
 
-<article class="review-card">
-    <div class="review-stars">★★★★★</div>
-    <p>
-        “Movo hits the sweet spot between data and simplicity. I see volume and
-        trends, but the app never feels cluttered or overwhelming.”
-    </p>
-    <p class="review-author">— Marco R.</p>
-</article>
+                <article class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p>
+                        “Movo hits the sweet spot between data and simplicity. I see volume and
+                        trends, but the app never feels cluttered or overwhelming.”
+                    </p>
+                    <p class="review-author">— Marco R.</p>
+                </article>
 
-<article class="review-card">
-    <div class="review-stars">★★★★★</div>
-    <p>
-        “As a beginner, I love how calm the interface feels. I can follow my
-        routines without getting lost in features I don’t understand yet.”
-    </p>
-    <p class="review-author">— Hannah W.</p>
-</article>
+                <article class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p>
+                        “As a beginner, I love how calm the interface feels. I can follow my
+                        routines without getting lost in features I don’t understand yet.”
+                    </p>
+                    <p class="review-author">— Hannah W.</p>
+                </article>
 
-<article class="review-card">
-    <div class="review-stars">★★★★★</div>
-    <p>
-        “Seeing weekly volume, session time and my streak in one place keeps me
-        accountable. If my week is empty, I know I have to move.”
-    </p>
-    <p class="review-author">— Leon T.</p>
-</article>
+                <article class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p>
+                        “Seeing weekly volume, session time and my streak in one place keeps me
+                        accountable. If my week is empty, I know I have to move.”
+                    </p>
+                    <p class="review-author">— Leon T.</p>
+                </article>
 
-<article class="review-card">
-    <div class="review-stars">★★★★★</div>
-    <p>
-        “The combination of challenges, widgets and exercise stats makes it
-        really hard to ‘forget’ about training. Movo quietly nudges me to show up.”
-    </p>
-    <p class="review-author">— Carla M.</p>
-</article>
+                <article class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p>
+                        “The combination of challenges, widgets and exercise stats makes it
+                        really hard to ‘forget’ about training. Movo quietly nudges me to show up.”
+                    </p>
+                    <p class="review-author">— Carla M.</p>
+                </article>
 
                 <article class="review-card">
                     <div class="review-stars">★★★★★</div>
@@ -1869,128 +1864,121 @@
         </div>
     </section>
 
- <!-- ABOUT US -->
-<section class="section about-section" id="about">
-    <div class="container">
-        <div class="section-header-wide">
-            <div class="section-kicker">About Movo</div>
-            <h2 class="section-title">Built by someone who actually lifts.</h2>
-            <p class="section-text">
-                Movo is an independent app created by a lifter and iOS developer who wanted
-                something calmer than spreadsheets and less noisy than most fitness apps.
-            </p>
-        </div>
-
-        <div class="about-grid">
-            <!-- Story / Mission -->
-            <div>
-                <div class="about-card">
-                    <p class="about-intro">
-                        The first version of Movo was nothing more than a personal tool:
-                        a simple way to log heavy sessions, track volume and keep an eye on
-                        progress without being pulled into feeds, likes or DMs.
-                    </p>
-                    <p class="about-intro">
-                        Over time it grew into the app it is today – focused on lifters who
-                        care about structured training, honest stats and a workflow that
-                        respects your attention in a busy gym.
-                    </p>
-                    <ul class="about-list">
-                        <li>• Fast enough to log every set between breaths.</li>
-                        <li>• Clear enough that you can read it in a noisy, crowded gym.</li>
-                        <li>• Focused enough to skip the “social network” bloat completely.</li>
-                    </ul>
-                </div>
-
-                <div class="about-card">
-                    <h3 style="font-size:15px; margin-bottom:6px;">Who Movo is for</h3>
-                    <ul class="about-list">
-                        <li>• Lifters who like Push/Pull/Leg, Upper/Lower or custom programs.</li>
-                        <li>• People who want to see real trends – not just streak emojis.</li>
-                        <li>• Anyone who prefers strong, quiet tools over loud fitness hype.</li>
-                    </ul>
-                </div>
+    <!-- ABOUT US -->
+    <section class="section about-section" id="about">
+        <div class="container">
+            <div class="section-header-wide">
+                <div class="section-kicker">About Movo</div>
+                <h2 class="section-title">Built by someone who actually lifts.</h2>
+                <p class="section-text">
+                    Movo is an independent app created by a lifter and iOS developer who wanted
+                    something calmer than spreadsheets and less noisy than most fitness apps.
+                </p>
             </div>
 
-            <!-- Principles / Meta -->
-            <aside>
-                <div class="about-card">
-                    <div class="pill-row">
-                        <span class="about-pill">Indie app</span>
-                        <span class="about-pill">No ads</span>
-                        <span class="about-pill">Privacy-minded</span>
+            <div class="about-grid">
+                <div>
+                    <div class="about-card">
+                        <p class="about-intro">
+                            The first version of Movo was nothing more than a personal tool:
+                            a simple way to log heavy sessions, track volume and keep an eye on
+                            progress without being pulled into feeds, likes or DMs.
+                        </p>
+                        <p class="about-intro">
+                            Over time it grew into the app it is today – focused on lifters who
+                            care about structured training, honest stats and a workflow that
+                            respects your attention in a busy gym.
+                        </p>
+                        <ul class="about-list">
+                            <li>• Fast enough to log every set between breaths.</li>
+                            <li>• Clear enough that you can read it in a noisy, crowded gym.</li>
+                            <li>• Focused enough to skip the “social network” bloat completely.</li>
+                        </ul>
                     </div>
-                    <h3 style="font-size:15px; margin-bottom:6px;">What guides decisions in Movo</h3>
-                    <ul class="about-list about-list--check">
-                        <li><span>Fast in the gym first, pretty graphs second.</span></li>
-                        <li><span>Data you understand beats endless analytics.</span></li>
-                        <li><span>No social feed, no public profiles, no distractions.</span></li>
-                        <li><span>Your workout data is yours – Movo just helps you use it.</span></li>
-                    </ul>
-                </div>
-            </aside>
-        </div>
-    </div>
-</section>
 
+                    <div class="about-card">
+                        <h3 style="font-size:15px; margin-bottom:6px;">Who Movo is for</h3>
+                        <ul class="about-list">
+                            <li>• Lifters who like Push/Pull/Leg, Upper/Lower or custom programs.</li>
+                            <li>• People who want to see real trends – not just streak emojis.</li>
+                            <li>• Anyone who prefers strong, quiet tools over loud fitness hype.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <aside>
+                    <div class="about-card">
+                        <div class="pill-row">
+                            <span class="about-pill">Indie app</span>
+                            <span class="about-pill">No ads</span>
+                            <span class="about-pill">Privacy-minded</span>
+                        </div>
+                        <h3 style="font-size:15px; margin-bottom:6px;">What guides decisions in Movo</h3>
+                        <ul class="about-list about-list--check">
+                            <li><span>Fast in the gym first, pretty graphs second.</span></li>
+                            <li><span>Data you understand beats endless analytics.</span></li>
+                            <li><span>No social feed, no public profiles, no distractions.</span></li>
+                            <li><span>Your workout data is yours – Movo just helps you use it.</span></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
 
     <!-- CONTACT -->
- <!-- CONTACT -->
-<section class="section section-contact" id="contact">
-    <div class="container">
-        <div class="section-header-wide">
-            <div class="section-kicker">Contact</div>
-            <h2 class="section-title">Questions, ideas or bug reports?</h2>
-            <p class="section-text">
-                Every message helps make Movo better. Whether you’ve found a bug,
-                have an idea for a feature or want to share how you train – we read it.
-            </p>
-        </div>
-
-        <div class="contact-grid">
-            <!-- Support & Feedback -->
-            <div class="contact-card">
-                <h3 class="contact-title">Support &amp; feedback</h3>
-                <p>
-                    If something doesn’t work as expected or you’re unsure how to use a feature,
-                    send a quick note with a short description and, if possible, screenshots.
+    <section class="section section-contact" id="contact">
+        <div class="container">
+            <div class="section-header-wide">
+                <div class="section-kicker">Contact</div>
+                <h2 class="section-title">Questions, ideas or bug reports?</h2>
+                <p class="section-text">
+                    Every message helps make Movo better. Whether you’ve found a bug,
+                    have an idea for a feature or want to share how you train – we read it.
                 </p>
+            </div>
 
-                <div class="contact-mail-badge">
-                    <span class="icon">✉︎</span>
-                    <a href="mailto:movobp.contact@gmail.com">
-                        movobp.contact@gmail.com
-                    </a>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3 class="contact-title">Support &amp; feedback</h3>
+                    <p>
+                        If something doesn’t work as expected or you’re unsure how to use a feature,
+                        send a quick note with a short description and, if possible, screenshots.
+                    </p>
+
+                    <div class="contact-mail-badge">
+                        <span class="icon">✉︎</span>
+                        <a href="mailto:movobp.contact@gmail.com">
+                            movobp.contact@gmail.com
+                        </a>
+                    </div>
+
+                    <ul class="contact-list">
+                        <li>Tell us which iPhone model and iOS version you’re on.</li>
+                        <li>Mention which screen you were on when the issue appeared.</li>
+                        <li>Short videos or screenshots are super helpful but not required.</li>
+                    </ul>
                 </div>
 
-                <ul class="contact-list">
-                    <li>Tell us which iPhone model and iOS version you’re on.</li>
-                    <li>Mention which screen you were on when the issue appeared.</li>
-                    <li>Short videos or screenshots are super helpful but not required.</li>
-                </ul>
-            </div>
-
-            <!-- Ideas / Beta / Collaboration -->
-            <div class="contact-card">
-                <h3 class="contact-title">Help shape Movo</h3>
-                <p>
-                    Movo is built in the open with lifters. If you’d like to influence where
-                    the app goes, you’re more than welcome:
-                </p>
-                <ul class="contact-list">
-                    <li>Share feature ideas or things that slow you down in other apps.</li>
-                    <li>Offer to test early builds and give structured feedback.</li>
-                    <li>Tell us about your training setup for potential case studies.</li>
-                </ul>
-                <p class="contact-small">
-                    Just include <strong>“Movo feedback”</strong> or <strong>“Beta”</strong>
-                    in your subject line so we can spot your message quickly.
-                </p>
+                <div class="contact-card">
+                    <h3 class="contact-title">Help shape Movo</h3>
+                    <p>
+                        Movo is built in the open with lifters. If you’d like to influence where
+                        the app goes, you’re more than welcome:
+                    </p>
+                    <ul class="contact-list">
+                        <li>Share feature ideas or things that slow you down in other apps.</li>
+                        <li>Offer to test early builds and give structured feedback.</li>
+                        <li>Tell us about your training setup for potential case studies.</li>
+                    </ul>
+                    <p class="contact-small">
+                        Just include <strong>“Movo feedback”</strong> or <strong>“Beta”</strong>
+                        in your subject line so we can spot your message quickly.
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
-
+    </section>
 </main>
 
 <footer>
@@ -2007,5 +1995,24 @@
         </nav>
     </div>
 </footer>
+
+<script>
+  (function () {
+    const toggle = document.querySelector('.nav-toggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    if (!toggle || !mobileMenu) return;
+
+    toggle.addEventListener('click', function () {
+      mobileMenu.classList.toggle('is-open');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        mobileMenu.classList.remove('is-open');
+      });
+    });
+  })();
+</script>
 </body>
 </html>
