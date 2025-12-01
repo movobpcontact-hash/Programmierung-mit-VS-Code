@@ -221,31 +221,35 @@ header {
             overflow: hidden;
         }
 
-        @media (max-width: 960px) {
-            .nav-links {
-                display: none;
-            }
+        
+      @media (max-width: 960px) {
+    /* Navigationselemente auf Handy ausblenden */
+    .nav-links {
+        display: none;
+    }
 
-            .nav-cta {
-                display: none;
-            }
+    .nav-cta {
+        display: none;
+    }
 
-            .menu-toggle {
-                display: flex;
-            }
+    .menu-toggle {
+        display: none; /* Hamburger komplett weg */
+    }
 
-            header .nav {
-                justify-content: center;
-            }
+    .nav-mobile {
+        display: none !important; /* Sicherstellen, dass kein Dropdown mehr auftaucht */
+    }
 
-            .logo {
-                margin: 0 auto;
-            }
+    /* Header-Layout: Logo links statt alles zentriert */
+    header .nav {
+        justify-content: flex-start;
+    }
 
-            body.nav-open .nav-mobile {
-                display: block;
-            }
-        }
+    .logo {
+        margin: 0;
+    }
+}
+
 
         /* BUTTONS */
 
